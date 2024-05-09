@@ -5,6 +5,7 @@
 // Especifically, it serves for the requirements 6 and 7.
 
 #include <vector>
+#include <stdint.h>
 #include "product.hh"
 
 using namespace std;
@@ -31,15 +32,15 @@ public:
 
     /** @brief  Add a new type of product to all_products.
      *  \pre    TRUE.
-     *  \post   The product is stored in the pool, and its assigned ProdID tag is returned.
+     *  \post   The product is stored in the pool, and its assigned identifier is returned.
     */
-    Product::ProdID add_new_product(Product const& product);
+    uint32_t add_new_product(Product const& product);
 
-    /** @brief  Given a ProdID tag, return the product (unmodifiable).
-     *  \pre    The ProdID is existent.
+    /** @brief  Given a Product identifier, return the product (unmodifiable).
+     *  \pre    The identifier is existent.
      *  \post   The product's data is returned.
     */
-    Product consult_product(Product::ProdID tag) const;
+    Product consult_product(uint32_t identifier) const;
 
     /** @brief  Returns how many products are there in the pool.
      *  \pre    TRUE.
@@ -51,7 +52,7 @@ public:
      *  \pre    TRUE.
      *  \post   Returns TRUE only if there is a product that has the ID. Otherwise FALSE.
     */
-    bool product_exists(Product::ProdID tag) const;
+    bool product_exists(int tag) const;
 };
 
 #endif // PRODUCT_DATA_HH

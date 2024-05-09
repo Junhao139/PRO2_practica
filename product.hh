@@ -4,14 +4,11 @@
 // This is a type of product
 
 class Product {
-public:
-    typedef unsigned int ProdID;
 private:
     int mass;
     int volume;
-    ProdID identifier;
 public:
-    Product(int mass, int volume, ProdID identifier);
+    Product(int mass, int volume);
     ~Product();
 
     /** @brief  Get the mass.

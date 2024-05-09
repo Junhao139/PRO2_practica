@@ -17,13 +17,12 @@ using namespace std;
 class River {
 private:
     // Access the inventory of a city using city's identifier
-    map<City::CityID, City> inventory_database;
+    map<string, City> inventory_database;
 
     // The structure of the basin
-    BinTree<City::CityID> basin_cities;
+    BinTree<string> basin_cities;
 
 public:
-/* Methods */
     /** @brief  Constructor. It sets everything to its initial state. Basin is empty.
      *  \pre    TRUE.
      *  \post   TRUE.
@@ -40,15 +39,31 @@ public:
      *  \pre    There is a valid binary tree description in PreOrder on the input.
      *  \post   River's structure is updated according to the input.
     */
-    void input_basin();
+    void input_river_structure();
 
-    /** @brief  Place the ship in the root node of the river.
+    /** @brief  Let the ship select route and commercialize.
      *  \pre    TRUE.
-     *  \post   If basin's empty, BinTree() will be returned. Otherwise it returns a non-null BinTree.
+     *  \post   The ship's data will be modified. The number of bought and sold units are returned via references.
     */
-    void place_ship(Ship& ship);
+    void ship_travelling(Ship& ship, int& bought_units, int& sold_units);
 
-    
+    /** @brief  Tells if a city exists.
+     *  \pre    TRUE.
+     *  \post   Return TRUE only if the "identifier"'s city exists in River.
+    */
+    bool city_exists(string const& identifier) const;
+
+    /** @brief  Commercialize between 2 cities.
+     *  \pre    Both cities exist.
+     *  \post   Two cities will commercialize between them, modifying their inventory.
+    */
+    void commercialize(string const& city_1, string const& city2);
+
+    /** @brief  Redistribute according to the requirement 17 of the documentation.
+     *  \pre    TRUE.
+     *  \post   All inventory of the invervened cities will be modified.
+    */
+    void redistribute();
 };
 
 
