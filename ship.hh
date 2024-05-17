@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include <stdint.h>
+#include <iostream>
 
 #include "product.hh"
 
@@ -25,16 +26,18 @@ public:
     ~Ship();
 
     /** @brief  Returns the wanted product and value through referenced variables.
-     *  \pre    "wanted" and "wanted_number" reference to lvalues.
-     *  \post   "wanted" and "wanted_number" contain necessary information. 
+     *  \pre    TRUE.
+     *  \post   Necessary information are returned. 
     */
-    void wanted_products(int32_t& wanted, int& wanted_number) const;
+    uint32_t wanted_product() const;
+    int wanted_number() const;
 
     /** @brief  Returns the product for sell and its value through referenced variables.
-     *  \pre    "for_sell" and "for_sell_number" reference to lvalues.
-     *  \post   "for_sell" and "for_sell_number" contain necessary information.
+     *  \pre    TRUE.
+     *  \post   Necessary information are returned. 
     */
-    void for_sell_products(int32_t& for_sell, int& for_sell_number) const;
+    uint32_t for_sell_product() const;
+    int for_sell_number() const;
 
     /** @brief  Sets the wanted product and how many of it, and seemingly for the ones for_sell.
      *  \pre    Both products exist, the numbers are non-negative and one of them is strictly positive.
@@ -47,6 +50,18 @@ public:
      *  \post   The destination is registered.
     */
     void add_destination(string const& city_id);
+
+    /** @brief  Output using STL "cout" and in specific format as what is indicated in the Sample all the previous destinations.
+     *  \pre    TRUE.
+     *  \post   In console there will be a few lines of the City names.
+    */
+    void write_all_destinations() const;
+
+    /** @brief  Clears all registered destinations.
+     *  \pre    TRUE.
+     *  \post   No destinations are registered in ship.
+    */
+    void clear_all_destinations();
 };
 
 #endif // SHIP_HH

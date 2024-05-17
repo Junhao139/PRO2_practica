@@ -1,12 +1,18 @@
 #include "product.hh"
 
-Product::Product(int mass, int volume, ProdID identifier) {
+Product::Product(int mass, int volume) {
     this->mass = mass;
     this->volume = volume;
-    this->identifier = identifier;
 }
 
 Product::~Product() {
 
 }
 
+int Product::get_mass() const {
+    return this->mass;
+}
+
+int Product::get_volume() const {
+    return this->volume;
+}

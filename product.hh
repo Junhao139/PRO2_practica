@@ -22,12 +22,6 @@ public:
      *  \post   TRUE.
     */
     int get_volume() const;
-
-    /** @brief  Get the ID.
-     *  \pre    TRUE.
-     *  \post   TRUE.
-    */
-    int get_ID() const;
 };
 
 #endif // PRODUCT_HH

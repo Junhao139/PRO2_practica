@@ -34,13 +34,13 @@ public:
      *  \pre    TRUE.
      *  \post   The product is stored in the pool, and its assigned identifier is returned.
     */
-    uint32_t add_new_product(Product const& product);
+    void add_new_product(Product const& product);
 
     /** @brief  Given a Product identifier, return the product (unmodifiable).
      *  \pre    The identifier is existent.
-     *  \post   The product's data is returned.
+     *  \post   The product's data is returned via reference.
     */
-    Product consult_product(uint32_t identifier) const;
+    void consult_product(Product& product, uint32_t identifier) const;
 
     /** @brief  Returns how many products are there in the pool.
      *  \pre    TRUE.
@@ -52,7 +52,7 @@ public:
      *  \pre    TRUE.
      *  \post   Returns TRUE only if there is a product that has the ID. Otherwise FALSE.
     */
-    bool product_exists(int tag) const;
+    bool product_exists(uint32_t tag) const;
 };
 
 #endif // PRODUCT_DATA_HH
