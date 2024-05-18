@@ -61,7 +61,7 @@ Se leerá el identificador de una ciudad. Si la ciudad no existe se escribirá u
 ## 14. comerciar o co.
 Se leerán los identificadores de dos ciudades. Si no existe alguna de las dos (o las dos), se escribe un mensaje de error. Si las ciudades existen y son la misma, se escribe un mensaje de error. Si las ciudades existen y son diferentes, comercian entre ellas.
 ## 15. redistribuir o re.
-No se leen datos. La ciudad de la desembocadura comercia con su ciudad río arriba a mano derecha y luego con la ciudad río arriba a mano izquierda, y así sucesivamente.
+No se leen dato#ebs. La ciudad de la desembocadura comercia con su ciudad río arriba a mano derecha y luego con la ciudad río arriba a mano izquierda, y así sucesivamente.
 ## 16. hacer_viaje o hv.
 1. El barco busca la ruta a partir de la desembocadura que le permita comprar y vender el mayor número posible de productos. En caso que haya más de una ruta que lo cumpla, se queda con la más corta, y en caso de que tengan la misma longitud, se queda con la que viene río arriba a mano derecha.
 2. Una vez encontrada la ruta, se hace el viaje y se compran y venden los productos a lo largo de la ruta, modificándose los inventarios de las ciudades.

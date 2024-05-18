@@ -71,6 +71,86 @@ void River::ship_seek_all_routes(
     }
 }
 
+void River::ship_seek_all_routes_until_last_transact(
+    list<pair<int, pair<string, SalesStatus>>>& all_destinations,
+    Ship const& ship,
+    int steps,
+    int last_transact_steps,
+    SalesStatus accumulated_sale,
+    BinTree<string> this_city,
+    string last_transact_city
+) {
+    if (this_city.empty()) {
+        // force to do nothing
+        return;
+    }
+
+    // ship "simulates" a commercialization with this city
+    auto it = this->inventory_database.find(this_city.value());
+    
+    // only commercializes if the city has more than it needs
+    int ship_wanted_in_demand_in_city,      ship_wanted_available_in_city,
+        ship_for_sell_in_demand_in_city,    ship_for_sell_available_in_city;
+
+    // indicators of if the ship did transactions with this city
+    bool wanted_transacted   = false;
+    bool for_sell_transacted = false;
+    
+    // if the city has the wanted product
+    if (it->second.exist_in_inventory(ship.wanted_product())) {
+        it->second.consult_product(ship.wanted_product(), ship_wanted_in_demand_in_city, ship_wanted_available_in_city);
+
+        // city has more than it needs of what the ship wanted 
+        if (ship_wanted_available_in_city > ship_wanted_in_demand_in_city) {
+            // buy them
+            accumulated_sale.bought_units +=
+                ship_wanted_available_in_city - ship_wanted_in_demand_in_city;
+            wanted_transacted = true;
+        }
+    }
+
+    // if the city has the selling product
+    if (it->second.exist_in_inventory(ship.for_sell_product())) {
+        it->second.consult_product(ship.for_sell_product(), ship_for_sell_in_demand_in_city, ship_for_sell_available_in_city);
+
+        // city has less than it needs of what the ship is selling
+        if (ship_for_sell_available_in_city < ship_for_sell_in_demand_in_city) {
+            // sell them
+            accumulated_sale.sold_units +=
+                ship_for_sell_in_demand_in_city - ship_for_sell_available_in_city;
+            for_sell_transacted = true;
+        }
+    }
+
+    // if this is a leaf
+    if (this_city.left().empty() and this_city.right().empty()) {
+        if (wanted_transacted or for_sell_transacted) {
+            pair<string, SalesStatus> city_info(this_city.value(), accumulated_sale);
+            pair<int, pair<string, SalesStatus>> node_info(steps, city_info);
+            all_destinations.push_back(node_info);
+        }
+        else  {
+            pair<string, SalesStatus> city_info(last_transact_city, accumulated_sale);
+            pair<int, pair<string, SalesStatus>> node_info(last_transact_steps, city_info);
+            all_destinations.push_back(node_info);
+        }
+    } else {
+        // proceeds to continue with the recursion
+        // if this branch has only one sub-branch, nothing will be affected.
+
+        // update the last_transacted related info when it did actually transact
+        if (wanted_transacted or for_sell_transacted) {
+            ship_seek_all_routes_until_last_transact(all_destinations, ship, steps + 1, steps, accumulated_sale, this_city.left(), this_city.value());
+            ship_seek_all_routes_until_last_transact(all_destinations, ship, steps + 1, steps, accumulated_sale, this_city.right(), this_city.value());
+        }
+        // otherwise just go to the next node without updating the info
+        else {
+            ship_seek_all_routes_until_last_transact(all_destinations, ship, steps + 1, last_transact_steps, accumulated_sale, this_city.left(), last_transact_city);
+            ship_seek_all_routes_until_last_transact(all_destinations, ship, steps + 1, last_transact_steps, accumulated_sale, this_city.right(), last_transact_city);
+        }
+    }
+}
+
 bool River::ship_get_route(
     list<string>& route,
     pair<int, string>& verifier,
@@ -196,6 +276,10 @@ void River::input_river_structure() {
 }
 
 void River::ship_travelling(Ship& ship, ProductData const& pddata, int& bought_units, int& sold_units) {
+    // 0. Ensure that there are nodes in River
+    if (this->basin_cities.empty())
+        return;
+
     // 1. Look for the optimum destination
     list<pair<int, pair<string, SalesStatus>>> all_destinations;
     SalesStatus accumulated_sale = {
@@ -204,7 +288,7 @@ void River::ship_travelling(Ship& ship, ProductData const& pddata, int& bought_u
     };
 
     // 1.1. Find all possible destinations
-    this->ship_seek_all_routes(all_destinations, ship, 0, accumulated_sale, this->basin_cities);
+    this->ship_seek_all_routes_until_last_transact(all_destinations, ship, 0, 0, accumulated_sale, this->basin_cities, this->basin_cities.value());
 
     // 1.2. Select the most optimum destination
     auto all_dest_it    = ++all_destinations.begin();
@@ -217,6 +301,8 @@ void River::ship_travelling(Ship& ship, ProductData const& pddata, int& bought_u
         all_dest_best->second.second.bought_units,
         all_dest_best->second.second.sold_units
     );
+
+    //cout << "IT_DEST(" << all_dest_best->second.first << "," << all_dest_best->first << ")";
     
     while (all_dest_it != all_dest_end) {
         int this_sold_bought_sum = this->ship_for_sell_wanted_sum(
@@ -225,6 +311,8 @@ void River::ship_travelling(Ship& ship, ProductData const& pddata, int& bought_u
             all_dest_it->second.second.sold_units
         );
         int this_steps = all_dest_it->first;
+
+        //cout << "IT_DEST(" << all_dest_it->second.first << "," << all_dest_it->first << ")";
 
         // this route has better of sold+bought with the greatest one
         if (this_sold_bought_sum > greatest_sold_bought_sum) {
@@ -243,6 +331,8 @@ void River::ship_travelling(Ship& ship, ProductData const& pddata, int& bought_u
         ++all_dest_it;
     }
 
+    //cout << "BEST_DEST(" << all_dest_best->second.first << "," << all_dest_best->first << ")";
+
     // 1.3 With the most optimum destination, find the route
     list<string> optimum_route;
     pair<int, string> verifier(minimum_steps, all_dest_best->second.first);
@@ -256,20 +346,25 @@ void River::ship_travelling(Ship& ship, ProductData const& pddata, int& bought_u
 
     auto optimum_route_it   = optimum_route.begin();
     auto optimum_route_end  = optimum_route.end();
+
+    Ship aux_ship = ship;
+
     // for every city
     while (optimum_route_it != optimum_route_end) {
-        this->ship_transact(*optimum_route_it, ship, pddata);
+        this->ship_transact(*optimum_route_it, aux_ship, pddata);
         ++optimum_route_it;
     }
 
     // 3. Calculate the values for return
-    bought_units    = ship_initial_wanted_count - ship.wanted_number();
-    sold_units      = ship_initial_for_sell_count - ship.for_sell_number();
+    bought_units    = ship_initial_wanted_count - aux_ship.wanted_number();
+    sold_units      = ship_initial_for_sell_count - aux_ship.for_sell_number();
+
+    //cout << "LAST_CITY(" << optimum_route.back() << "," << optimum_route.size() << ")";
 
     // 4. Register the last visited city only if ship made treats
     if (bought_units + sold_units > 0) {
         ship.add_destination(optimum_route.back());
-    }  
+    }
 }
 
 void River::commercialize(string const& city_1, string const& city_2, ProductData const& pddata) {

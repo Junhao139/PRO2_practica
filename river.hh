@@ -43,6 +43,19 @@ private:
     void ship_seek_all_routes(list<pair<int, pair<string, SalesStatus>>>& all_destinations, Ship const& ship, int steps, SalesStatus accumulated_sale, BinTree<string> this_city);
 
     /** @brief
+     * 
+    */
+    void ship_seek_all_routes_until_last_transact(
+    list<pair<int, pair<string, SalesStatus>>>& all_destinations,
+    Ship const& ship,
+    int steps,
+    int last_transact_steps,
+    SalesStatus accumulated_sale,
+    BinTree<string> this_city,
+    string last_transact_city
+    );
+
+    /** @brief
      *  \pre
      *  \post
     */

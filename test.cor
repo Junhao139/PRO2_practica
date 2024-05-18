@@ -29,7 +29,7 @@ error: no se puede comprar y vender el mismo producto
 #escribir_producto 11
 error: no existe el producto
 #ep 10
-5 6
+10 5 6
 #escribir_ciudad bruna
 error: no existe la ciudad
 #escribir_ciudad barna
@@ -176,7 +176,7 @@ error: ciudad repetida
 #hv
 1
 #eb
-6 10 2 11
+6 10 2 12
 borna
 #leer_rio
 #escribir_ciudad barna
@@ -186,7 +186,7 @@ borna
 #escribir_ciudad birna
 0 0
 #escribir_barco
-6 10 2 11
+6 10 2 12
 #lr
 #ec darna
 0 0
@@ -216,7 +216,7 @@ borna
 #hacer_viaje
 8
 #eb
-3 10 4 2
+3 10 4 10
 dirna
 #escribir_ciudad darna
 1 15 8
@@ -239,7 +239,7 @@ dirna
 7 19 3
 288 491
 #escribir_barco
-3 10 4 2
+3 10 4 10
 dirna
 #mb
 #eb
@@ -274,9 +274,9 @@ dirna
 #hacer_viaje
 10
 #escribir_barco
-2 0 6 10
+2 10 6 10
 dirna
-dirna
+derna
 #escribir_ciudad darna
 1 15 8
 2 10 10

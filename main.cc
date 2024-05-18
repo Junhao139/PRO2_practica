@@ -225,7 +225,7 @@ void run_command(
         if (product_types.product_exists(product)) {
             Product prod(0, 0);
             product_types.consult_product(prod, product);
-            cout << prod.get_mass() << ' ' << prod.get_volume() << endl;
+            cout << product << ' ' << prod.get_mass() << ' ' << prod.get_volume() << endl;
         } else {
             error_log("no existe el producto");
         }
