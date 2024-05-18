@@ -64,7 +64,7 @@ int main() {
         }
         else {
             // note the input with "#" on the output
-            cout << "#" << command << endl;
+            cout << "#" << command;
 
             // run the command
             run_command(command, types_of_products, river_structure, ship);
@@ -108,11 +108,13 @@ void run_command(
     if (command == "leer_rio" or command == "lr") {
         ship.clear_all_destinations();
         river.input_river_structure();
+        cout << endl;
     }
     /* 2 */
     else if (command == "leer_inventario" or command == "li") {
         string city_id;
         cin >> city_id;
+        cout << ' ' << city_id << endl;
         if (not river.city_exists_in_basin(city_id)) {
             error_log("no existe la ciudad");
 
@@ -144,6 +146,7 @@ void run_command(
     else if (command == "leer_inventarios" or command == "ls") {
         string city_id;
         cin >> city_id;
+        cout << endl;
         while (city_id != "#") {
             if (not river.city_exists_in_basin(city_id)) {
                 error_log("no existe la ciudad");
@@ -180,6 +183,7 @@ void run_command(
         int ship_wanted_qtty, ship_for_sell_qtty;
         cin >> ship_wanted   >> ship_wanted_qtty
             >> ship_for_sell >> ship_for_sell_qtty;
+        cout << endl;
         if (product_types.product_exists(ship_wanted) and product_types.product_exists(ship_for_sell)) {
             if (ship_wanted == ship_for_sell) {
                 error_log("no se puede comprar y vender el mismo producto");
@@ -192,18 +196,21 @@ void run_command(
     }
     /* 5 */
     else if (command == "escribir_barco" or command == "eb") {
+        cout << endl;
         cout << ship.wanted_product()   << ' ' << ship.wanted_number()   << ' '
              << ship.for_sell_product() << ' ' << ship.for_sell_number() << endl;
         ship.write_all_destinations();
     }
     /* 6 */
     else if (command == "consultar_num" or command == "cn") {
+        cout << endl;
         cout << product_types.database_size() << endl;
     }
     /* 7 */
     else if (command == "agregar_productos" or command == "ap") {
         int input_quantity;
         cin >> input_quantity;
+        cout << ' ' << input_quantity << endl;
         for (int i = 0; i < input_quantity; ++i) {
             int mass, volume;
             cin >> mass >> volume;
@@ -214,6 +221,7 @@ void run_command(
     else if (command == "escribir_producto" or command == "ep") {
         uint32_t product;
         cin >> product;
+        cout << ' ' << product << endl;
         if (product_types.product_exists(product)) {
             Product prod(0, 0);
             product_types.consult_product(prod, product);
@@ -226,6 +234,7 @@ void run_command(
     else if (command == "escribir_ciudad" or command == "ec") {
         string city_id;
         cin >> city_id;
+        cout << ' ' << city_id << endl;
         if (river.city_exists_in_basin(city_id)) {
             river.city_write_inventory(city_id);
             int total_mass, total_volume;
@@ -242,10 +251,11 @@ void run_command(
         uint32_t product;
         int available, in_demand;
         cin >> city_id >> product >> available >> in_demand;
+        cout << ' ' << city_id << ' ' << product << endl;
         if (product_types.product_exists(product)) {
             if (river.city_exists_in_basin(city_id)) {
                 if (not river.city_has_product(city_id, product)) {
-                    river.city_add_product(city_id, product_types, product, available, in_demand);
+                    river.city_add_product(city_id, product_types, product, in_demand, available);
                     int total_mass, total_volume;
                     bool has_inventory;
                     river.city_information(city_id, total_mass, total_volume, has_inventory);
@@ -266,6 +276,7 @@ void run_command(
         uint32_t product;
         int available, in_demand;
         cin >> city_id >> product >> available >> in_demand;
+        cout << ' ' << city_id << ' ' << product << endl;
         if (product_types.product_exists(product)) {
             if (river.city_exists_in_basin(city_id)) {
                 if (river.city_has_product(city_id, product)) {
@@ -289,6 +300,7 @@ void run_command(
         string city_id;
         uint32_t product;
         cin >> city_id >> product;
+        cout << ' ' << city_id << ' ' << product << endl;
         if (product_types.product_exists(product)) {
             if (river.city_exists_in_basin(city_id)) {
                 if (river.city_has_product(city_id, product)) {
@@ -312,6 +324,7 @@ void run_command(
         string city_id;
         uint32_t product;
         cin >> city_id >> product;
+        cout << ' ' << city_id << ' ' << product << endl;
         if (product_types.product_exists(product)) {
             if (river.city_exists_in_basin(city_id)) {
                 if (river.city_has_product(city_id, product)) {
@@ -332,6 +345,7 @@ void run_command(
     else if (command == "comerciar" or command == "co") {
         string city_1, city_2;
         cin >> city_1 >> city_2;
+        cout << ' ' << city_1 << ' ' << city_2 << endl;
         if (river.city_exists_in_basin(city_1) and river.city_exists_in_basin(city_2)) {
             if (city_1 != city_2) {
                 river.commercialize(city_1, city_2, product_types);
@@ -344,10 +358,12 @@ void run_command(
     }
     /* 15 */
     else if (command == "redistribuir" or command == "re") {
+        cout << endl;
         river.redistribute(product_types);
     }
     /* 16 */
     else if (command == "hacer_viaje" or command == "hv") {
+        cout << endl;
         int bought_units, sold_units;
         river.ship_travelling(ship, product_types, bought_units, sold_units);
         cout << bought_units + sold_units << endl; 

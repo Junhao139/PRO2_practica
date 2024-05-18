@@ -262,12 +262,14 @@ void River::ship_travelling(Ship& ship, ProductData const& pddata, int& bought_u
         ++optimum_route_it;
     }
 
-    // 3. Register the last visited city
-    ship.add_destination(optimum_route.back());
-
-    // 4. Return the values
+    // 3. Calculate the values for return
     bought_units    = ship_initial_wanted_count - ship.wanted_number();
     sold_units      = ship_initial_for_sell_count - ship.for_sell_number();
+
+    // 4. Register the last visited city only if ship made treats
+    if (bought_units + sold_units > 0) {
+        ship.add_destination(optimum_route.back());
+    }  
 }
 
 void River::commercialize(string const& city_1, string const& city_2, ProductData const& pddata) {
