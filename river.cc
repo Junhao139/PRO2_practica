@@ -15,70 +15,15 @@ BinTree<string> River::read_input_bin_tree() {
     return BinTree<string>(input, left, right);
 }
 
-void River::ship_seek_all_routes(
-    list<pair<int, pair<string, SalesStatus>>>& all_destinations,
-    Ship const& ship,
-    int steps,
-    SalesStatus accumulated_sale,
-    BinTree<string> this_city
-) {
-    if (this_city.empty()) {
-        // force to do nothing
-        return;
-    }
-
-    // ship "simulates" a commercialization with this city
-    auto it = this->inventory_database.find(this_city.value());
-    
-    // only commercializes if the city has more than it needs
-    int ship_wanted_in_demand_in_city,      ship_wanted_available_in_city,
-        ship_for_sell_in_demand_in_city,    ship_for_sell_available_in_city;
-    
-    // if the city has the wanted product
-    if (it->second.exist_in_inventory(ship.wanted_product())) {
-        it->second.consult_product(ship.wanted_product(), ship_wanted_in_demand_in_city, ship_wanted_available_in_city);
-
-        // city has more than it needs of what the ship wanted 
-        if (ship_wanted_available_in_city > ship_wanted_in_demand_in_city) {
-            // buy them
-            accumulated_sale.bought_units +=
-                ship_wanted_available_in_city - ship_wanted_in_demand_in_city;
-        }
-    }
-
-    // if the city has the selling product
-    if (it->second.exist_in_inventory(ship.for_sell_product())) {
-        it->second.consult_product(ship.for_sell_product(), ship_for_sell_in_demand_in_city, ship_for_sell_available_in_city);
-
-        // city has less than it needs of what the ship is selling
-        if (ship_for_sell_available_in_city < ship_for_sell_in_demand_in_city) {
-            // sell them
-            accumulated_sale.sold_units +=
-                ship_for_sell_in_demand_in_city - ship_for_sell_available_in_city;
-        }
-    }
-
-    // if this is a leaf
-    if (this_city.left().empty() and this_city.right().empty()) {
-        pair<string, SalesStatus> city_info(this_city.value(), accumulated_sale);
-        pair<int, pair<string, SalesStatus>> node_info(steps, city_info);
-        all_destinations.push_back(node_info);
-    } else {
-        // proceeds to continue with the recursion
-        // if this branch has only one sub-branch, nothing will be affected.
-        ship_seek_all_routes(all_destinations, ship, steps + 1, accumulated_sale, this_city.left());
-        ship_seek_all_routes(all_destinations, ship, steps + 1, accumulated_sale, this_city.right());
-    }
-}
-
 void River::ship_seek_all_routes_until_last_transact(
-    list<pair<int, pair<string, SalesStatus>>>& all_destinations,
-    Ship const& ship,
-    int steps,
-    int last_transact_steps,
-    SalesStatus accumulated_sale,
-    BinTree<string> this_city,
-    string last_transact_city
+    list<DestinationData>&  all_destinations,
+    Ship const&             ship,
+    int                     steps,
+    int                     last_transact_steps,
+    int                     sold_units,
+    int                     bought_units,
+    BinTree<string>         this_city,
+    string                  last_transact_city
 ) {
     if (this_city.empty()) {
         // force to do nothing
@@ -103,8 +48,7 @@ void River::ship_seek_all_routes_until_last_transact(
         // city has more than it needs of what the ship wanted 
         if (ship_wanted_available_in_city > ship_wanted_in_demand_in_city) {
             // buy them
-            accumulated_sale.bought_units +=
-                ship_wanted_available_in_city - ship_wanted_in_demand_in_city;
+            bought_units += ship_wanted_available_in_city - ship_wanted_in_demand_in_city;
             wanted_transacted = true;
         }
     }
@@ -116,39 +60,84 @@ void River::ship_seek_all_routes_until_last_transact(
         // city has less than it needs of what the ship is selling
         if (ship_for_sell_available_in_city < ship_for_sell_in_demand_in_city) {
             // sell them
-            accumulated_sale.sold_units +=
-                ship_for_sell_in_demand_in_city - ship_for_sell_available_in_city;
+            sold_units += ship_for_sell_in_demand_in_city - ship_for_sell_available_in_city;
             for_sell_transacted = true;
         }
     }
 
     // if this is a leaf
     if (this_city.left().empty() and this_city.right().empty()) {
+        DestinationData ddata;
         if (wanted_transacted or for_sell_transacted) {
-            pair<string, SalesStatus> city_info(this_city.value(), accumulated_sale);
-            pair<int, pair<string, SalesStatus>> node_info(steps, city_info);
-            all_destinations.push_back(node_info);
+            ddata = {
+                .depth          = steps,
+                .identifier     = this_city.value(),
+                .sold_units     = sold_units,
+                .bought_units   = bought_units
+            };
+        } else {
+            ddata = {
+                .depth          = last_transact_steps,
+                .identifier     = last_transact_city,
+                .sold_units     = sold_units,
+                .bought_units   = bought_units
+            };
         }
-        else  {
-            pair<string, SalesStatus> city_info(last_transact_city, accumulated_sale);
-            pair<int, pair<string, SalesStatus>> node_info(last_transact_steps, city_info);
-            all_destinations.push_back(node_info);
-        }
+        all_destinations.push_back(ddata);
     } else {
         // proceeds to continue with the recursion
         // if this branch has only one sub-branch, nothing will be affected.
 
-        // update the last_transacted related info when it did actually transact
+        // update the last_transacted related info when it did actually transact this time,
+        // otherwise just go to the next node without updating the info.
         if (wanted_transacted or for_sell_transacted) {
-            ship_seek_all_routes_until_last_transact(all_destinations, ship, steps + 1, steps, accumulated_sale, this_city.left(), this_city.value());
-            ship_seek_all_routes_until_last_transact(all_destinations, ship, steps + 1, steps, accumulated_sale, this_city.right(), this_city.value());
+            last_transact_steps = steps;
+            last_transact_city = this_city.value();
         }
-        // otherwise just go to the next node without updating the info
-        else {
-            ship_seek_all_routes_until_last_transact(all_destinations, ship, steps + 1, last_transact_steps, accumulated_sale, this_city.left(), last_transact_city);
-            ship_seek_all_routes_until_last_transact(all_destinations, ship, steps + 1, last_transact_steps, accumulated_sale, this_city.right(), last_transact_city);
-        }
+
+        ship_seek_all_routes_until_last_transact(all_destinations, ship, steps + 1, last_transact_steps, sold_units, bought_units, this_city.left(), last_transact_city);
+        ship_seek_all_routes_until_last_transact(all_destinations, ship, steps + 1, last_transact_steps, sold_units, bought_units, this_city.right(), last_transact_city);
     }
+}
+
+void River::ship_select_best_destination(Ship const& ship, list<DestinationData>& all_destinations, list<DestinationData>::iterator& best) const {
+    auto all_dest_it    = ++all_destinations.begin();
+    auto all_dest_end   = all_destinations.end();
+    auto all_dest_best  = all_destinations.begin();
+
+    int minimum_steps = all_dest_best->depth;
+    int greatest_sold_bought_sum = this->ship_for_sell_wanted_sum(
+        ship,
+        all_dest_best->bought_units,
+        all_dest_best->sold_units
+    );
+ 
+    while (all_dest_it != all_dest_end) {
+        int this_sold_bought_sum = this->ship_for_sell_wanted_sum(
+            ship,
+            all_dest_it->bought_units,
+            all_dest_it->sold_units
+        );
+        int this_steps = all_dest_it->depth;
+
+        // this route has better of sold+bought with the greatest one
+        if (this_sold_bought_sum > greatest_sold_bought_sum) {
+            greatest_sold_bought_sum = this_sold_bought_sum;
+            minimum_steps = this_steps;
+            all_dest_best = all_dest_it;
+        }
+        // this route has the same amount
+        else if (this_sold_bought_sum == greatest_sold_bought_sum) {
+            if (this_steps < minimum_steps) {
+                minimum_steps = this_steps;
+                all_dest_best = all_dest_it;
+            }
+        }
+
+        ++all_dest_it;
+    }
+
+    best = all_dest_best;
 }
 
 bool River::ship_get_route(
@@ -281,89 +270,54 @@ void River::ship_travelling(Ship& ship, ProductData const& pddata, int& bought_u
         return;
 
     // 1. Look for the optimum destination
-    list<pair<int, pair<string, SalesStatus>>> all_destinations;
-    SalesStatus accumulated_sale = {
-        .sold_units     = 0,
-        .bought_units   = 0
-    };
+    list<DestinationData> all_destinations;
 
     // 1.1. Find all possible destinations
-    this->ship_seek_all_routes_until_last_transact(all_destinations, ship, 0, 0, accumulated_sale, this->basin_cities, this->basin_cities.value());
+    this->ship_seek_all_routes_until_last_transact(all_destinations, ship, 0, 0, 0, 0, this->basin_cities, this->basin_cities.value());
 
     // 1.2. Select the most optimum destination
-    auto all_dest_it    = ++all_destinations.begin();
-    auto all_dest_end   = all_destinations.end();
-    auto all_dest_best  = all_destinations.begin();
-
-    int minimum_steps = all_dest_best->first;
-    int greatest_sold_bought_sum = this->ship_for_sell_wanted_sum(
-        ship,
-        all_dest_best->second.second.bought_units,
-        all_dest_best->second.second.sold_units
-    );
-
-    //cout << "IT_DEST(" << all_dest_best->second.first << "," << all_dest_best->first << ")";
-    
-    while (all_dest_it != all_dest_end) {
-        int this_sold_bought_sum = this->ship_for_sell_wanted_sum(
-            ship,
-            all_dest_it->second.second.bought_units,
-            all_dest_it->second.second.sold_units
-        );
-        int this_steps = all_dest_it->first;
-
-        //cout << "IT_DEST(" << all_dest_it->second.first << "," << all_dest_it->first << ")";
-
-        // this route has better of sold+bought with the greatest one
-        if (this_sold_bought_sum > greatest_sold_bought_sum) {
-            greatest_sold_bought_sum = this_sold_bought_sum;
-            minimum_steps = this_steps;
-            all_dest_best = all_dest_it;
-        }
-        // this route has the same amount
-        else if (this_sold_bought_sum == greatest_sold_bought_sum) {
-            if (this_steps < minimum_steps) {
-                minimum_steps = this_steps;
-                all_dest_best = all_dest_it;
-            }
-        }
-
-        ++all_dest_it;
-    }
-
-    //cout << "BEST_DEST(" << all_dest_best->second.first << "," << all_dest_best->first << ")";
+    list<DestinationData>::iterator all_dest_best;
+    this->ship_select_best_destination(ship, all_destinations, all_dest_best);
 
     // 1.3 With the most optimum destination, find the route
     list<string> optimum_route;
-    pair<int, string> verifier(minimum_steps, all_dest_best->second.first);
+    pair<int, string> verifier(all_dest_best->depth, all_dest_best->identifier);
     this->ship_get_route(optimum_route, verifier, 0, this->basin_cities);
 
     // Now the optimum route is stored in the "optimum_route".
     // 2. Transact
     // Before applying the transactions, store the original values for the step (4).
-    int ship_initial_wanted_count   = ship.wanted_number();
-    int ship_initial_for_sell_count = ship.for_sell_number();
 
-    auto optimum_route_it   = optimum_route.begin();
-    auto optimum_route_end  = optimum_route.end();
+    // If in this route there will be no transactions,
+    // then nothing is going to be done, obviously.
+    if (all_dest_best->bought_units + all_dest_best->sold_units > 0) {
+        int ship_initial_wanted_count   = ship.wanted_number();
+        int ship_initial_for_sell_count = ship.for_sell_number();
 
-    Ship aux_ship = ship;
+        auto optimum_route_it   = optimum_route.begin();
+        auto optimum_route_end  = optimum_route.end();
 
-    // for every city
-    while (optimum_route_it != optimum_route_end) {
-        this->ship_transact(*optimum_route_it, aux_ship, pddata);
-        ++optimum_route_it;
-    }
+        Ship aux_ship;
+        aux_ship.set_all(
+            ship.wanted_product(),      ship.wanted_number(),
+            ship.for_sell_product(),    ship.for_sell_number()
+        );
 
-    // 3. Calculate the values for return
-    bought_units    = ship_initial_wanted_count - aux_ship.wanted_number();
-    sold_units      = ship_initial_for_sell_count - aux_ship.for_sell_number();
+        // for every city
+        while (optimum_route_it != optimum_route_end) {
+            this->ship_transact(*optimum_route_it, aux_ship, pddata);
+            ++optimum_route_it;
+        }
 
-    //cout << "LAST_CITY(" << optimum_route.back() << "," << optimum_route.size() << ")";
+        // 3. Calculate the values for return
+        bought_units    = ship_initial_wanted_count - aux_ship.wanted_number();
+        sold_units      = ship_initial_for_sell_count - aux_ship.for_sell_number();
 
-    // 4. Register the last visited city only if ship made treats
-    if (bought_units + sold_units > 0) {
+        // 4. Register the last visited city only if ship made trades
         ship.add_destination(optimum_route.back());
+    } else {
+        // 2. Return zero directly.
+        bought_units = sold_units = 0;
     }
 }
 
