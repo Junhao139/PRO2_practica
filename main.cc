@@ -46,23 +46,26 @@ void run_command(
  *  All these functions' name start with "run_command_aux_", then
  *  it is the code of the requirement (see Practica's Instructions)
  *  to which corresponds the function's utility. All these functions
- *  will have the same four parameters as the original "run_command()",
+ *  will have the same parameters as the original "run_command()",
  *  so the further descriptions are omitted for these functions.
+ *  One thing is that not all 4 original parameters are necessary,
+ *  so in order to not having "error: unused parameter", here I kept
+ *  only the necessary ones.
  * 
  *  \addtogroup run_command_aux
  *  @{
  */
-void run_command_aux_2( string const& command, ProductData& product_types, River& river, Ship& ship);
-void run_command_aux_3( string const& command, ProductData& product_types, River& river, Ship& ship);
-void run_command_aux_4( string const& command, ProductData& product_types, River& river, Ship& ship);
-void run_command_aux_7( string const& command, ProductData& product_types, River& river, Ship& ship);
-void run_command_aux_8( string const& command, ProductData& product_types, River& river, Ship& ship);
-void run_command_aux_9( string const& command, ProductData& product_types, River& river, Ship& ship);
-void run_command_aux_10(string const& command, ProductData& product_types, River& river, Ship& ship);
-void run_command_aux_11(string const& command, ProductData& product_types, River& river, Ship& ship);
-void run_command_aux_12(string const& command, ProductData& product_types, River& river, Ship& ship);
-void run_command_aux_13(string const& command, ProductData& product_types, River& river, Ship& ship);
-void run_command_aux_14(string const& command, ProductData& product_types, River& river, Ship& ship);
+void run_command_aux_2(ProductData& product_types, River& river);
+void run_command_aux_3(ProductData& product_types, River& river);
+void run_command_aux_4(ProductData& product_types, Ship& ship);
+void run_command_aux_7(ProductData& product_types);
+void run_command_aux_8(ProductData& product_types);
+void run_command_aux_9(River& river);
+void run_command_aux_10(ProductData& product_types, River& river);
+void run_command_aux_11(ProductData& product_types, River& river);
+void run_command_aux_12(ProductData& product_types, River& river);
+void run_command_aux_13(ProductData& product_types, River& river);
+void run_command_aux_14(ProductData& product_types, River& river);
 /** @} */
 
 
@@ -147,15 +150,15 @@ void run_command(
     }
     /* 2 */
     else if (command == "leer_inventario" or command == "li") {
-        run_command_aux_2(command, product_types, river, ship);
+        run_command_aux_2(product_types, river);
     }
     /* 3 */
     else if (command == "leer_inventarios" or command == "ls") {
-        run_command_aux_3(command, product_types, river, ship);
+        run_command_aux_3(product_types, river);
     }
     /* 4 */
     else if (command == "modificar_barco" or command == "mb") {
-        run_command_aux_4(command, product_types, river, ship);
+        run_command_aux_4(product_types, ship);
     }
     /* 5 */
     else if (command == "escribir_barco" or command == "eb") {
@@ -171,35 +174,35 @@ void run_command(
     }
     /* 7 */
     else if (command == "agregar_productos" or command == "ap") {
-        run_command_aux_7(command, product_types, river, ship);
+        run_command_aux_7(product_types);
     }
     /* 8 */
     else if (command == "escribir_producto" or command == "ep") {
-        run_command_aux_8(command, product_types, river, ship);
+        run_command_aux_8(product_types);
     }
     /* 9 */
     else if (command == "escribir_ciudad" or command == "ec") {
-        run_command_aux_9(command, product_types, river, ship);
+        run_command_aux_9(river);
     }
     /* 10 */
     else if (command == "poner_prod" or command == "pp") {
-        run_command_aux_10(command, product_types, river, ship);
+        run_command_aux_10(product_types, river);
     }
     /* 11 */
     else if (command == "modificar_prod" or command == "mp") {
-        run_command_aux_11(command, product_types, river, ship);
+        run_command_aux_11(product_types, river);
     }
     /* 12 */
     else if (command == "quitar_prod" or command == "qp") {
-        run_command_aux_12(command, product_types, river, ship);
+        run_command_aux_12(product_types, river);
     }
     /* 13 */
     else if (command == "consultar_prod" or command == "cp") {
-        run_command_aux_13(command, product_types, river, ship);
+        run_command_aux_13(product_types, river);
     }
     /* 14 */
     else if (command == "comerciar" or command == "co") {
-        run_command_aux_14(command, product_types, river, ship);
+        run_command_aux_14(product_types, river);
     }
     /* 15 */
     else if (command == "redistribuir" or command == "re") {
@@ -215,7 +218,7 @@ void run_command(
     }
 }
 
-void run_command_aux_2( string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_2(ProductData& product_types, River& river) {
     string city_id;
     cin >> city_id;
     cout << ' ' << city_id << endl;
@@ -247,7 +250,7 @@ void run_command_aux_2( string const& command, ProductData& product_types, River
     }
 }
 
-void run_command_aux_3( string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_3(ProductData& product_types, River& river) {
     string city_id;
     cin >> city_id;
     cout << endl;
@@ -282,7 +285,7 @@ void run_command_aux_3( string const& command, ProductData& product_types, River
     }
 }
 
-void run_command_aux_4( string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_4(ProductData& product_types, Ship& ship) {
     uint32_t ship_wanted, ship_for_sell;
     int ship_wanted_qtty, ship_for_sell_qtty;
     cin >> ship_wanted   >> ship_wanted_qtty
@@ -299,7 +302,7 @@ void run_command_aux_4( string const& command, ProductData& product_types, River
     }
 }
 
-void run_command_aux_7( string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_7(ProductData& product_types) {
     int input_quantity;
     cin >> input_quantity;
     cout << ' ' << input_quantity << endl;
@@ -310,7 +313,7 @@ void run_command_aux_7( string const& command, ProductData& product_types, River
     }
 }
 
-void run_command_aux_8( string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_8(ProductData& product_types) {
     uint32_t product;
     cin >> product;
     cout << ' ' << product << endl;
@@ -323,7 +326,7 @@ void run_command_aux_8( string const& command, ProductData& product_types, River
     }
 }
 
-void run_command_aux_9( string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_9(River& river) {
     string city_id;
     cin >> city_id;
     cout << ' ' << city_id << endl;
@@ -338,7 +341,7 @@ void run_command_aux_9( string const& command, ProductData& product_types, River
     }
 }
 
-void run_command_aux_10(string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_10(ProductData& product_types, River& river) {
     string city_id;
     uint32_t product;
     int available, in_demand;
@@ -363,7 +366,7 @@ void run_command_aux_10(string const& command, ProductData& product_types, River
     }
 }
 
-void run_command_aux_11(string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_11(ProductData& product_types, River& river) {
     string city_id;
     uint32_t product;
     int available, in_demand;
@@ -388,7 +391,7 @@ void run_command_aux_11(string const& command, ProductData& product_types, River
     }
 }
 
-void run_command_aux_12(string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_12(ProductData& product_types, River& river) {
     string city_id;
     uint32_t product;
     cin >> city_id >> product;
@@ -412,7 +415,7 @@ void run_command_aux_12(string const& command, ProductData& product_types, River
     }
 }
 
-void run_command_aux_13(string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_13(ProductData& product_types, River& river) {
     string city_id;
     uint32_t product;
     cin >> city_id >> product;
@@ -434,7 +437,7 @@ void run_command_aux_13(string const& command, ProductData& product_types, River
     }
 }
 
-void run_command_aux_14(string const& command, ProductData& product_types, River& river, Ship& ship) {
+void run_command_aux_14(ProductData& product_types, River& river) {
     string city_1, city_2;
     cin >> city_1 >> city_2;
     cout << ' ' << city_1 << ' ' << city_2 << endl;

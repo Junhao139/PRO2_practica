@@ -30,7 +30,7 @@ void River::ship_seek_all_routes_until_last_transact(
         return;
     }
 
-    // ship "simulates" a commercialization with this city
+    // ship "simulates" a trading with this city
     auto it = this->inventory_database.find(this_city.value());
     
     // only trades if the city has more than it needs
