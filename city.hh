@@ -85,11 +85,11 @@ public:
     */
     bool has_inventory() const;
 
-    /** @brief  Commercialize between this city and the given one.
+    /** @brief  Trade between this city and the given one.
      *  \pre    The fireign city exist.
      *  \post   The inventory of the two cities are modified.
     */
-    void commercialize_with(City& foreign, ProductData const& pd);
+    void trade_with(City& foreign, ProductData const& pd);
 
     /** @brief  Write on the output using STL "cout" in the requiered format the whole inventory in numerical order of the product.
      *  \pre    TRUE.

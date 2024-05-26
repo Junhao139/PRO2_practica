@@ -440,7 +440,7 @@ void run_command_aux_14(string const& command, ProductData& product_types, River
     cout << ' ' << city_1 << ' ' << city_2 << endl;
     if (river.city_exists_in_basin(city_1) and river.city_exists_in_basin(city_2)) {
         if (city_1 != city_2) {
-            river.commercialize(city_1, city_2, product_types);
+            river.trade(city_1, city_2, product_types);
         } else {
             error_log("ciudad repetida");
         }

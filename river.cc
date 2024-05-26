@@ -33,7 +33,7 @@ void River::ship_seek_all_routes_until_last_transact(
     // ship "simulates" a commercialization with this city
     auto it = this->inventory_database.find(this_city.value());
     
-    // only commercializes if the city has more than it needs
+    // only trades if the city has more than it needs
     int ship_wanted_in_demand_in_city,      ship_wanted_available_in_city,
         ship_for_sell_in_demand_in_city,    ship_for_sell_available_in_city;
 
@@ -240,11 +240,11 @@ void River::redistribute_REC(BinTree<string> this_city, ProductData const& pddat
     BinTree<string> right = this_city.right();
 
     if (not left.empty()) {
-        this->commercialize(this_city.value(), left.value(), pddata);
+        this->trade(this_city.value(), left.value(), pddata);
     }
 
     if (not right.empty()) {
-        this->commercialize(this_city.value(), right.value(), pddata);
+        this->trade(this_city.value(), right.value(), pddata);
     }
 
     redistribute_REC(left, pddata);
@@ -321,11 +321,11 @@ void River::ship_travelling(Ship& ship, ProductData const& pddata, int& bought_u
     }
 }
 
-void River::commercialize(string const& city_1, string const& city_2, ProductData const& pddata) {
+void River::trade(string const& city_1, string const& city_2, ProductData const& pddata) {
     auto it_city_1 = this->inventory_database.find(city_1);
     auto it_city_2 = this->inventory_database.find(city_2);
 
-    it_city_1->second.commercialize_with(it_city_2->second, pddata);
+    it_city_1->second.trade_with(it_city_2->second, pddata);
 }
 
 void River::redistribute(ProductData const& pddata) {

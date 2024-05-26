@@ -87,7 +87,7 @@ bool City::has_inventory() const {
     return this->inventory_disposition;
 }
 
-void City::commercialize_with(City& foreign, ProductData const& pd) {
+void City::trade_with(City& foreign, ProductData const& pd) {
     // if one doesn't have inventory then nothing to commmercialize
     if (this->has_inventory() and foreign.has_inventory()) {
         auto map_city_1_it  = this->inventory.begin();

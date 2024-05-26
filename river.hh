@@ -154,7 +154,7 @@ public:
     */
     void input_river_structure();
 
-    /** @brief  Let the ship select route and commercialize.
+    /** @brief  Let the ship select route and trade.
      *  \pre    TRUE.
      *  \post   The ship's data will be modified. The number of bought and sold units are returned via references.
      * 
@@ -167,9 +167,9 @@ public:
     */
     void ship_travelling(Ship& ship, ProductData const& pddata, int& bought_units, int& sold_units);
 
-    /** @brief  Commercialize between 2 cities.
+    /** @brief  Trade between 2 cities.
      *  \pre    Both cities exist.
-     *  \post   Two cities will commercialize between them, modifying their inventory.
+     *  \post   Two cities will trade between them, modifying their inventory.
      *  
      *  @param  city_1
      *  @param  city_2
@@ -177,7 +177,7 @@ public:
      * 
      *  @return Nothing.
     */
-    void commercialize(string const& city_1, string const& city_2, ProductData const& pddata);
+    void trade(string const& city_1, string const& city_2, ProductData const& pddata);
 
     /** @brief  Redistribute according to the requirement 17 of the documentation.
      *  \pre    TRUE.
