@@ -10,9 +10,10 @@
 
 using namespace std;
 
-// City corresponds with a node in the River's BinTree structure
-// It serves mainly for a container to manage city's inventory.
-
+/** @details 
+ *  City corresponds with a node in the River's BinTree structure
+ *  It serves mainly for a container to manage city's inventory.
+*/
 class City {
 private:
     struct ProductDemand {

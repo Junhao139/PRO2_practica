@@ -120,47 +120,31 @@ void City::commercialize_with(City& foreign, ProductData const& pd) {
                 if (city1_demand.available > city1_demand.in_demand and city2_demand.available < city2_demand.in_demand) {
                     int city1_can_sell = city1_demand.available - city1_demand.in_demand;
                     int city2_needs_to_buy = city2_demand.in_demand - city2_demand.available;
-                    // city_1 can fully satisfy city_2's needs
-                    if (city1_can_sell >= city2_needs_to_buy) {
-                        city1_demand.available -= city2_needs_to_buy;
-                        city_1.total_mass   -= city2_needs_to_buy * product_info.get_mass();
-                        city_1.total_volume -= city2_needs_to_buy * product_info.get_volume();
+                    
+                    int final_deal = min(city1_can_sell, city2_needs_to_buy);
 
-                        city2_demand.available += city2_needs_to_buy;
-                        city_2.total_mass   += city2_needs_to_buy * product_info.get_mass();
-                        city_2.total_volume += city2_needs_to_buy * product_info.get_volume();
-                    } else {
-                        city1_demand.available -= city1_can_sell;
-                        city_1.total_mass   -= city1_can_sell * product_info.get_mass();
-                        city_1.total_volume -= city1_can_sell * product_info.get_volume();
+                    city1_demand.available -= final_deal;
+                    city_1.total_mass   -= final_deal * product_info.get_mass();
+                    city_1.total_volume -= final_deal * product_info.get_volume();
 
-                        city2_demand.available += city1_can_sell;
-                        city_2.total_mass   += city1_can_sell * product_info.get_mass();
-                        city_2.total_volume += city1_can_sell * product_info.get_volume();
-                    }
+                    city2_demand.available += final_deal;
+                    city_2.total_mass   += final_deal * product_info.get_mass();
+                    city_2.total_volume += final_deal * product_info.get_volume();
                 }
-                // if city_1 needs what in city_2 exceeded
+                // if city_1 needs what has exceeded in city_2
                 else if (city2_demand.available > city2_demand.in_demand and city1_demand.available < city1_demand.in_demand) {
                     int city2_can_sell = city2_demand.available - city2_demand.in_demand;
                     int city1_needs_to_buy = city1_demand.in_demand - city1_demand.available;
-                    // city_2 can fully satisfy city_1's needs
-                    if (city2_can_sell >= city1_needs_to_buy) {
-                        city2_demand.available -= city1_needs_to_buy;
-                        city_2.total_mass   -= city1_needs_to_buy * product_info.get_mass();
-                        city_2.total_volume -= city1_needs_to_buy * product_info.get_volume();
 
-                        city1_demand.available += city1_needs_to_buy;
-                        city_1.total_mass   += city1_needs_to_buy * product_info.get_mass();
-                        city_1.total_volume += city1_needs_to_buy * product_info.get_volume();
-                    } else {
-                        city2_demand.available -= city2_can_sell;
-                        city_2.total_mass   -= city2_can_sell * product_info.get_mass();
-                        city_2.total_volume -= city2_can_sell * product_info.get_volume();
+                    int final_deal = min(city2_can_sell, city1_needs_to_buy);
 
-                        city1_demand.available += city2_can_sell;
-                        city_1.total_mass   += city2_can_sell * product_info.get_mass();
-                        city_1.total_volume += city2_can_sell * product_info.get_volume();
-                    }
+                    city2_demand.available -= final_deal;
+                    city_2.total_mass   -= final_deal * product_info.get_mass();
+                    city_2.total_volume -= final_deal * product_info.get_volume();
+
+                    city1_demand.available += final_deal;
+                    city_1.total_mass   += final_deal * product_info.get_mass();
+                    city_1.total_volume += final_deal * product_info.get_volume();
                 }
 
                 ++map_city_1_it;
