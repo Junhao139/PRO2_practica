@@ -1,4 +1,8 @@
-/* main.cc */
+/**
+ * @file    main.cc
+ * @author  Junhao Liu
+ * @brief   The file that contains main function.
+ */
 
 #include <iostream>
 #include <string>
@@ -44,7 +48,8 @@ void run_command(
  *  to which corresponds the function's utility. All these functions
  *  will have the same four parameters as the original "run_command()",
  *  so the further descriptions are omitted for these functions.
- *  
+ * 
+ *  \addtogroup run_command_aux
  *  @{
  */
 void run_command_aux_2( string const& command, ProductData& product_types, River& river, Ship& ship);
