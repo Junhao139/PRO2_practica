@@ -4,8 +4,11 @@
 // The class that administrate the variety of all the products.
 // Especifically, it serves for the requirements 6 and 7.
 
+#ifndef NO_DIAGRAM
 #include <vector>
 #include <stdint.h>
+#endif // NO_DIAGRAM
+
 #include "product.hh"
 
 using namespace std;

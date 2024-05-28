@@ -12,12 +12,14 @@
 #ifndef RIVER_HH
 #define RIVER_HH
 
+#ifndef NO_DIAGRAM
 #include <iostream>
 #include <map>
 #include <list>
+#include "BinTree.hh"
+#endif // NO_DIAGRAM
 
 #include "city.hh"
-#include "BinTree.hh"
 #include "ship.hh"
 
 using namespace std;
@@ -94,9 +96,28 @@ private:
     */
     bool ship_get_route(
         list<string>&       route,
-        pair<int, string>&  verifier,
+        pair<int, string> const&  verifier,
         int                 steps,
         BinTree<string>     this_city
+    ) const;
+
+    /**
+     * @brief 
+     * 
+     */
+    struct SubrouteInfo {
+        int left_for_sell, left_for_buy;
+    };
+
+    /**
+     *  @brief  
+     * 
+     */
+    SubrouteInfo ship_find_optimum_route(
+        list<string>& route,
+        BinTree<string> city,
+        Ship const& ship,
+        SubrouteInfo srinfo
     );
 
     /** @brief  Given the city's name and the ship, transact between them modifying eachone's inventory.

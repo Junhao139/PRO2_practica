@@ -4,10 +4,12 @@
 // The Ship class will hold the information for the River class
 // to find the optimum route for transactions.
 
+#ifndef NO_DIAGRAM
 #include <string>
 #include <vector>
 #include <stdint.h>
 #include <iostream>
+#endif // NO_DIAGRAM
 
 #include "product.hh"
 

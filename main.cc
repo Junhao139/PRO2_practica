@@ -4,8 +4,10 @@
  * @brief   The file that contains main function.
  */
 
+#ifndef NO_DIAGRAM
 #include <iostream>
 #include <string>
+#endif // NO_DIAGRAM
 
 #include "river.hh"
 #include "product_data.hh"
@@ -41,32 +43,71 @@ void run_command(
 );
 
 /**
- *  @brief  All auxiliary functions for "run_command()" because they are long.
- *  @details
- *  All these functions' name start with "run_command_aux_", then
- *  it is the code of the requirement (see Practica's Instructions)
- *  to which corresponds the function's utility. All these functions
- *  will have the same parameters as the original "run_command()",
- *  so the further descriptions are omitted for these functions.
- *  One thing is that not all 4 original parameters are necessary,
- *  so in order to not having "error: unused parameter", here I kept
- *  only the necessary ones.
- * 
- *  \addtogroup run_command_aux
- *  @{
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "product_types" contains all intervened products. "river" is a valid one.
+ *  \post   The requirement 2 is done. (See Practica's Enunciat and run_command()'s corresponding section)
  */
 void run_command_aux_2(ProductData& product_types, River& river);
+/**
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "product_types" contains all intervened products. "river" is a valid one.
+ *  \post   The requirement 3 is done. (See Practica's Enunciat and run_command()'s corresponding section)
+ */
 void run_command_aux_3(ProductData& product_types, River& river);
+/**
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "product_types" contains all intervened products. "ship" is a valid one.
+ *  \post   The requirement 4 is done. (See Practica's Enunciat and run_command()'s corresponding section)
+ */
 void run_command_aux_4(ProductData& product_types, Ship& ship);
+/**
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "product_types" contains all intervened products.
+ *  \post   The requirement 7 is done. (See Practica's Enunciat and run_command()'s corresponding section)
+ */
 void run_command_aux_7(ProductData& product_types);
+/**
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "product_types" contains all intervened products.
+ *  \post   The requirement 8 is done. (See Practica's Enunciat and run_command()'s corresponding section)
+ */
 void run_command_aux_8(ProductData& product_types);
+/**
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "river" is a valid one.
+ *  \post   The requirement 9 is done. (See Practica's Enunciat and run_command()'s corresponding section)
+ */
 void run_command_aux_9(River& river);
+/**
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "product_types" contains all intervened products. "river" is a valid one.
+ *  \post   The requirement 10 is done. (See Practica's Enunciat and run_command()'s corresponding section)
+ */
 void run_command_aux_10(ProductData& product_types, River& river);
+/**
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "product_types" contains all intervened products. "river" is a valid one.
+ *  \post   The requirement 11 is done. (See Practica's Enunciat and run_command()'s corresponding section)
+ */
 void run_command_aux_11(ProductData& product_types, River& river);
+/**
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "product_types" contains all intervened products. "river" is a valid one.
+ *  \post   The requirement 12 is done. (See Practica's Enunciat and run_command()'s corresponding section)
+ */
 void run_command_aux_12(ProductData& product_types, River& river);
+/**
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "product_types" contains all intervened products. "river" is a valid one.
+ *  \post   The requirement 13 is done. (See Practica's Enunciat and run_command()'s corresponding section)
+ */
 void run_command_aux_13(ProductData& product_types, River& river);
+/**
+ *  @brief  Auxiliary function for the "run_command()".
+ *  \pre    "product_types" contains all intervened products. "river" is a valid one.
+ *  \post   The requirement 14 is done. (See Practica's Enunciat and run_command()'s corresponding section)
+ */
 void run_command_aux_14(ProductData& product_types, River& river);
-/** @} */
 
 
 /** @brief
@@ -76,7 +117,8 @@ void run_command_aux_14(ProductData& product_types, River& river);
 void error_log(string const& message);
 
 
-int main() {
+int main()
+{
     /** @brief  All types of products are registered by this object.
      */
     ProductData types_of_products;
@@ -116,7 +158,8 @@ void initial_data(
     ProductData&    types_of_products,
     River&          river_structure,
     Ship&           ship
-) {
+    )
+{
     // Add all the initially given products
     int product_count;
     cin >> product_count;
@@ -141,7 +184,8 @@ void run_command(
     ProductData&    product_types,
     River&          river,
     Ship&           ship
-) {
+    )
+{
     /* 1 */
     if (command == "leer_rio" or command == "lr") {
         ship.clear_all_destinations();
@@ -218,7 +262,8 @@ void run_command(
     }
 }
 
-void run_command_aux_2(ProductData& product_types, River& river) {
+void run_command_aux_2(ProductData& product_types, River& river)
+{
     string city_id;
     cin >> city_id;
     cout << ' ' << city_id << endl;
@@ -250,7 +295,8 @@ void run_command_aux_2(ProductData& product_types, River& river) {
     }
 }
 
-void run_command_aux_3(ProductData& product_types, River& river) {
+void run_command_aux_3(ProductData& product_types, River& river)
+{
     string city_id;
     cin >> city_id;
     cout << endl;
@@ -285,7 +331,8 @@ void run_command_aux_3(ProductData& product_types, River& river) {
     }
 }
 
-void run_command_aux_4(ProductData& product_types, Ship& ship) {
+void run_command_aux_4(ProductData& product_types, Ship& ship)
+{
     uint32_t ship_wanted, ship_for_sell;
     int ship_wanted_qtty, ship_for_sell_qtty;
     cin >> ship_wanted   >> ship_wanted_qtty
@@ -302,7 +349,8 @@ void run_command_aux_4(ProductData& product_types, Ship& ship) {
     }
 }
 
-void run_command_aux_7(ProductData& product_types) {
+void run_command_aux_7(ProductData& product_types)
+{
     int input_quantity;
     cin >> input_quantity;
     cout << ' ' << input_quantity << endl;
@@ -313,7 +361,8 @@ void run_command_aux_7(ProductData& product_types) {
     }
 }
 
-void run_command_aux_8(ProductData& product_types) {
+void run_command_aux_8(ProductData& product_types)
+{
     uint32_t product;
     cin >> product;
     cout << ' ' << product << endl;
@@ -326,7 +375,8 @@ void run_command_aux_8(ProductData& product_types) {
     }
 }
 
-void run_command_aux_9(River& river) {
+void run_command_aux_9(River& river)
+{
     string city_id;
     cin >> city_id;
     cout << ' ' << city_id << endl;
@@ -341,7 +391,8 @@ void run_command_aux_9(River& river) {
     }
 }
 
-void run_command_aux_10(ProductData& product_types, River& river) {
+void run_command_aux_10(ProductData& product_types, River& river)
+{
     string city_id;
     uint32_t product;
     int available, in_demand;
@@ -366,7 +417,8 @@ void run_command_aux_10(ProductData& product_types, River& river) {
     }
 }
 
-void run_command_aux_11(ProductData& product_types, River& river) {
+void run_command_aux_11(ProductData& product_types, River& river)
+{
     string city_id;
     uint32_t product;
     int available, in_demand;
@@ -391,7 +443,8 @@ void run_command_aux_11(ProductData& product_types, River& river) {
     }
 }
 
-void run_command_aux_12(ProductData& product_types, River& river) {
+void run_command_aux_12(ProductData& product_types, River& river)
+{
     string city_id;
     uint32_t product;
     cin >> city_id >> product;
@@ -415,7 +468,8 @@ void run_command_aux_12(ProductData& product_types, River& river) {
     }
 }
 
-void run_command_aux_13(ProductData& product_types, River& river) {
+void run_command_aux_13(ProductData& product_types, River& river)
+{
     string city_id;
     uint32_t product;
     cin >> city_id >> product;
@@ -437,7 +491,8 @@ void run_command_aux_13(ProductData& product_types, River& river) {
     }
 }
 
-void run_command_aux_14(ProductData& product_types, River& river) {
+void run_command_aux_14(ProductData& product_types, River& river)
+{
     string city_1, city_2;
     cin >> city_1 >> city_2;
     cout << ' ' << city_1 << ' ' << city_2 << endl;
@@ -453,6 +508,7 @@ void run_command_aux_14(ProductData& product_types, River& river) {
 }
 
 
-void error_log(string const& message) {
+void error_log(string const& message)
+{
     cout << "error: " << message << endl;
 }

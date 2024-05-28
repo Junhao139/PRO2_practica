@@ -1,10 +1,17 @@
+/**
+ * @file city.hh
+ * @brief City class definition.
+ */
+
 #ifndef CITY_HH
 #define CITY_HH
 
+#ifndef NO_DIAGRAM
 #include <string>
 #include <map>
 #include <stdint.h>
 #include <iostream>
+#endif // NO_DIAGRAM
 
 #include "product_data.hh"
 
@@ -86,7 +93,7 @@ public:
     bool has_inventory() const;
 
     /** @brief  Trade between this city and the given one.
-     *  \pre    The fireign city exist.
+     *  \pre    The foreign city exist.
      *  \post   The inventory of the two cities are modified.
     */
     void trade_with(City& foreign, ProductData const& pd);

@@ -1,23 +1,27 @@
 #include "city.hh"
 
-City::City() {
+City::City() 
+{
     this->inventory_disposition = false;
     this->total_mass = 0;
     this->total_volume = 0;
 }
 
-City::~City() {
+City::~City() 
+{
 
 }
 
-void City::clear_inventory() {
+void City::clear_inventory() 
+{
     this->inventory.clear();
     this->inventory_disposition = false;
     this->total_mass = 0;
     this->total_volume = 0;
 }
 
-void City::add_product_to_inventory(uint32_t identifier, ProductData const& pd, int in_demand, int available) {
+void City::add_product_to_inventory(uint32_t identifier, ProductData const& pd, int in_demand, int available) 
+{
     this->inventory_disposition = true;
     ProductDemand pdm = {
         .in_demand = in_demand,
@@ -32,7 +36,8 @@ void City::add_product_to_inventory(uint32_t identifier, ProductData const& pd, 
     this->total_volume  += product.get_volume() * available;
 }
 
-void City::set_product_in_inventory(uint32_t identifier, ProductData const& pd, int in_demand, int available) {
+void City::set_product_in_inventory(uint32_t identifier, ProductData const& pd, int in_demand, int available) 
+{
     this->inventory_disposition = true;
     ProductDemand pdm = {
         .in_demand = in_demand,
@@ -51,7 +56,8 @@ void City::set_product_in_inventory(uint32_t identifier, ProductData const& pd, 
     it->second = pdm;
 }
 
-bool City::exist_in_inventory(uint32_t product) const {
+bool City::exist_in_inventory(uint32_t product) const 
+{
     if (not this->has_inventory()) {
         return false;
     }
@@ -59,13 +65,15 @@ bool City::exist_in_inventory(uint32_t product) const {
     return it != this->inventory.end();
 }
 
-void City::consult_product(uint32_t identifier, int& in_demand, int& available) const {
+void City::consult_product(uint32_t identifier, int& in_demand, int& available) const 
+{
     auto it = this->inventory.find(identifier);
     in_demand = it->second.in_demand;
     available = it->second.available;
 }
 
-void City::delete_product(uint32_t identifier, ProductData const& pd) {
+void City::delete_product(uint32_t identifier, ProductData const& pd) 
+{
     auto it = this->inventory.find(identifier);
 
     // declare a "nothing" product
@@ -78,16 +86,19 @@ void City::delete_product(uint32_t identifier, ProductData const& pd) {
     this->inventory.erase(it);
 }
 
-void City::total_mass_and_volume(int& mass, int& volume) const {
+void City::total_mass_and_volume(int& mass, int& volume) const 
+{
     mass = this->total_mass;
     volume = this->total_volume;
 }
 
-bool City::has_inventory() const {
+bool City::has_inventory() const 
+{
     return this->inventory_disposition;
 }
 
-void City::trade_with(City& foreign, ProductData const& pd) {
+void City::trade_with(City& foreign, ProductData const& pd) 
+{
     // if one doesn't have inventory then nothing to commmercialize
     if (this->has_inventory() and foreign.has_inventory()) {
         auto map_city_1_it  = this->inventory.begin();
@@ -154,7 +165,8 @@ void City::trade_with(City& foreign, ProductData const& pd) {
     }
 }
 
-void City::write_inventory() const {
+void City::write_inventory() const 
+{
     if (this->has_inventory()) {
         auto it = this->inventory.begin();
         auto end = this->inventory.end();

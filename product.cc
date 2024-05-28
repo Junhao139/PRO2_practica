@@ -1,18 +1,22 @@
 #include "product.hh"
 
-Product::Product(int mass, int volume) {
+Product::Product(int mass, int volume)
+{
     this->mass = mass;
     this->volume = volume;
 }
 
-Product::~Product() {
+Product::~Product()
+{
 
 }
 
-int Product::get_mass() const {
+int Product::get_mass() const
+{
     return this->mass;
 }
 
-int Product::get_volume() const {
+int Product::get_volume() const
+{
     return this->volume;
 }
