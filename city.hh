@@ -26,7 +26,12 @@ private:
     /** @brief  The data structure for information of a product in an inventory.
      */
     struct ProductDemand {
+        /** @brief  The demand of the product for the city.
+        */
         int in_demand;
+
+        /** @brief  The availability of the product for the city.
+        */
         int available;
     };
 

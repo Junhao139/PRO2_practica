@@ -1,5 +1,17 @@
+/** @mainpage
+ *  The PRO2's practice's documentation, including private members and the code.
+ *  
+ *  The main program is main.cc. You may see its documentation is the corresponding section.
+ *  
+ *  All private and public methods are documented.
+ * 
+ *  - Author: Junhao Liu
+ *  - Group: 11
+ *  - Teacher: María Luisa Bonet
+ */
+
 /**
- * @file    main.cc
+ * @file    program.cc
  * @author  Junhao Liu
  * @brief   The file that contains main function, and the first layer of command processing.
  */

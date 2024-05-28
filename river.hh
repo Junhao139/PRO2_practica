@@ -43,7 +43,13 @@ private:
     /** @brief  This is a auxiliary data structure for ship_find_optimum_route function. It is equivalent (but more elegantly) to a pair<int,int>.
      */
     struct SubrouteInfo {
-        int left_for_sell, left_for_buy;
+        /** @brief  The units that are left for sell.
+         */
+        int left_for_sell;
+
+        /** @brief  The units that are left for buy.
+         */
+        int left_for_buy;
     };
 
     /** @brief  Finds recursively the best route.
