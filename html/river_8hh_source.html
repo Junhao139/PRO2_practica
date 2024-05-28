@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Fichero Fuente river.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">river.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="river_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef RIVER_HH</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define RIVER_HH</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef NO_DIAGRAM</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;BinTree.hh&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// NO_DIAGRAM</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="city_8hh.html">city.hh</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ship_8hh.html">ship.hh</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classRiver.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRiver.html">River</a> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classRiver.html#af012d07f93a909857220feac5cf62d62">   30</a></span>&#160;    map&lt;string, City&gt; <a class="code" href="classRiver.html#af012d07f93a909857220feac5cf62d62">inventory_database</a>; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classRiver.html#a0911a3f3da35ff5738f412e424a8691a">   34</a></span>&#160;    BinTree&lt;string&gt; <a class="code" href="classRiver.html#a0911a3f3da35ff5738f412e424a8691a">basin_cities</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    BinTree&lt;string&gt; read_input_bin_tree();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structRiver_1_1SubrouteInfo.html">   45</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structRiver_1_1SubrouteInfo.html">SubrouteInfo</a> {</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structRiver_1_1SubrouteInfo.html#ad88fb27386584f06209a3d8dd3b054cc">   46</a></span>&#160;        <span class="keywordtype">int</span> left_for_sell, <a class="code" href="structRiver_1_1SubrouteInfo.html#ad88fb27386584f06209a3d8dd3b054cc">left_for_buy</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="structRiver_1_1SubrouteInfo.html">SubrouteInfo</a> ship_find_optimum_route(</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        list&lt;string&gt;&amp; route,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        BinTree&lt;string&gt; city,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classShip.html">Ship</a> <span class="keyword">const</span>&amp; ship,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="structRiver_1_1SubrouteInfo.html">SubrouteInfo</a> srinfo</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> ship_transact(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_name, <a class="code" href="classShip.html">Ship</a>&amp; ship, <a class="code" href="classProductData.html">ProductData</a> <span class="keyword">const</span>&amp; pddata);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> redistribute_REC(BinTree&lt;string&gt; this_city, <a class="code" href="classProductData.html">ProductData</a> <span class="keyword">const</span>&amp; pddata);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="classRiver.html">River</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    ~<a class="code" href="classRiver.html">River</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> input_river_structure();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> ship_travelling(<a class="code" href="classShip.html">Ship</a>&amp; ship, <a class="code" href="classProductData.html">ProductData</a> <span class="keyword">const</span>&amp; pddata, <span class="keywordtype">int</span>&amp; bought_units, <span class="keywordtype">int</span>&amp; sold_units);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> trade(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_1, <span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_2, <a class="code" href="classProductData.html">ProductData</a> <span class="keyword">const</span>&amp; pddata);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">void</span> redistribute(<a class="code" href="classProductData.html">ProductData</a> <span class="keyword">const</span>&amp; pddata);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">bool</span> city_exists_in_basin(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_id) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">// CITY FUNCTIONS</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">bool</span> city_consult_product(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_id, uint32_t product_id, <span class="keywordtype">int</span>&amp; in_demand, <span class="keywordtype">int</span>&amp; available) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">bool</span> city_has_product(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_id, uint32_t product) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordtype">void</span> city_modify_product(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_id, <a class="code" href="classProductData.html">ProductData</a> <span class="keyword">const</span>&amp; pddata, uint32_t product_id, <span class="keywordtype">int</span> in_demand, <span class="keywordtype">int</span> available);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">void</span> city_add_product(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_id, <a class="code" href="classProductData.html">ProductData</a> <span class="keyword">const</span>&amp; pddata, uint32_t product_id, <span class="keywordtype">int</span> in_demand, <span class="keywordtype">int</span> available);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">void</span> city_delete_product(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_id, <a class="code" href="classProductData.html">ProductData</a> <span class="keyword">const</span>&amp; pddata, uint32_t product_id);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">void</span> city_information(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_id, <span class="keywordtype">int</span>&amp; total_mass, <span class="keywordtype">int</span>&amp; total_volume, <span class="keywordtype">bool</span>&amp; has_inventory) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordtype">void</span> city_clear_inventory(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_id);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">void</span> city_write_inventory(<span class="keywordtype">string</span> <span class="keyword">const</span>&amp; city_id) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;};</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// RIVER_HH</span></div>
+<div class="ttc" id="acity_8hh_html"><div class="ttname"><a href="city_8hh.html">city.hh</a></div><div class="ttdoc">City class definition.</div></div>
+<div class="ttc" id="aclassProductData_html"><div class="ttname"><a href="classProductData.html">ProductData</a></div><div class="ttdoc">This class is aimed for storing information of all products.</div><div class="ttdef"><b>Definition:</b> <a href="product__data_8hh_source.html#l00022">product_data.hh:22</a></div></div>
+<div class="ttc" id="aclassRiver_html"><div class="ttname"><a href="classRiver.html">River</a></div><div class="ttdoc">River administrates the basin's city structure and the set of all inventories.</div><div class="ttdef"><b>Definition:</b> <a href="river_8hh_source.html#l00026">river.hh:26</a></div></div>
+<div class="ttc" id="aclassRiver_html_a0911a3f3da35ff5738f412e424a8691a"><div class="ttname"><a href="classRiver.html#a0911a3f3da35ff5738f412e424a8691a">River::basin_cities</a></div><div class="ttdeci">BinTree&lt; string &gt; basin_cities</div><div class="ttdoc">The structure of the basin.</div><div class="ttdef"><b>Definition:</b> <a href="river_8hh_source.html#l00034">river.hh:34</a></div></div>
+<div class="ttc" id="aclassRiver_html_af012d07f93a909857220feac5cf62d62"><div class="ttname"><a href="classRiver.html#af012d07f93a909857220feac5cf62d62">River::inventory_database</a></div><div class="ttdeci">map&lt; string, City &gt; inventory_database</div><div class="ttdoc">The satabase store inventories identified with string names.</div><div class="ttdef"><b>Definition:</b> <a href="river_8hh_source.html#l00030">river.hh:30</a></div></div>
+<div class="ttc" id="aclassShip_html"><div class="ttname"><a href="classShip.html">Ship</a></div><div class="ttdoc">Ship stores what it wants and what it is selling, as well as all destinations that it has been.</div><div class="ttdef"><b>Definition:</b> <a href="ship_8hh_source.html#l00025">ship.hh:25</a></div></div>
+<div class="ttc" id="aship_8hh_html"><div class="ttname"><a href="ship_8hh.html">ship.hh</a></div><div class="ttdoc">The definition of the Ship class.</div></div>
+<div class="ttc" id="astructRiver_1_1SubrouteInfo_html"><div class="ttname"><a href="structRiver_1_1SubrouteInfo.html">River::SubrouteInfo</a></div><div class="ttdoc">This is a auxiliary data structure for ship_find_optimum_route function. It is equivalent (but more e...</div><div class="ttdef"><b>Definition:</b> <a href="river_8hh_source.html#l00045">river.hh:45</a></div></div>
+<div class="ttc" id="astructRiver_1_1SubrouteInfo_html_ad88fb27386584f06209a3d8dd3b054cc"><div class="ttname"><a href="structRiver_1_1SubrouteInfo.html#ad88fb27386584f06209a3d8dd3b054cc">River::SubrouteInfo::left_for_buy</a></div><div class="ttdeci">int left_for_buy</div><div class="ttdef"><b>Definition:</b> <a href="river_8hh_source.html#l00046">river.hh:46</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

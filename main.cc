@@ -1,7 +1,7 @@
 /**
  * @file    main.cc
  * @author  Junhao Liu
- * @brief   The file that contains main function.
+ * @brief   The file that contains main function, and the first layer of command processing.
  */
 
 #ifndef NO_DIAGRAM
@@ -19,6 +19,10 @@ using namespace std;
 /** @brief  The beginning input.
  *  \pre    TRUE.
  *  \post   It prepares the initial data according to the project description.
+ * 
+ *  @param  types_of_products   It will be initialized with Practica's default initial data.
+ *  @param  river_structure     It will be initialized with Practica's default initial data.
+ *  @param  ship                It will be initialized with Practica's default initial data.
 */
 void initial_data(
     ProductData&    types_of_products,
@@ -30,10 +34,10 @@ void initial_data(
  *  \pre    "command" is valid; "types_of_products" is non-null; "river_structure" is valid; "ship" is valid.
  *  \post   The command is run. "types_of_products", "river_structure" and "ship" are modified.
  * 
- *  @param  command
- *  @param  product_types
- *  @param  river
- *  @param  ship
+ *  @param  command         The command indicator of which function is to be done.
+ *  @param  product_types   The products' database.
+ *  @param  river           The basin's structure and city members.
+ *  @param  ship            The ship containing info for travelling and trades.
 */
 void run_command(
     string const&   command,
@@ -110,9 +114,11 @@ void run_command_aux_13(ProductData& product_types, River& river);
 void run_command_aux_14(ProductData& product_types, River& river);
 
 
-/** @brief
- *  \pre
- *  \post
+/** @brief  Outputs in "error: $message$" format the indicated message.
+ *  \pre    TRUE.
+ *  \post   The message will appear in output stream.
+ * 
+ *  @param  message The message to be logged.
 */
 void error_log(string const& message);
 
@@ -131,8 +137,10 @@ int main()
     */
     Ship ship;
 
+    // Initial data inputs
     initial_data(types_of_products, river_structure, ship);
 
+    // Command execution
     string command;
     cin >> command;
     while (command != "fin") {

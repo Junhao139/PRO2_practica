@@ -1,10 +1,17 @@
+/**
+ * @file ship.cc
+ * @brief Implementation for Ship class in ship.hh.
+ */
+
 #include "ship.hh"
 
-Ship::Ship() {
+Ship::Ship()
+{
     
 }
 
-Ship::~Ship() {
+Ship::~Ship()
+{
 
 }
 
@@ -43,8 +50,11 @@ void Ship::add_destination(string const& city_id)
 
 void Ship::write_all_destinations() const
 {
-    for (int i = 0; i < this->visited_cities.size(); ++i) {
-        cout << this->visited_cities[i] << endl;
+    auto it = this->visited_cities.begin();
+    auto end = this->visited_cities.end();
+    while (it != end) {
+        cout << *it << endl;
+        ++it;
     }
 }
 

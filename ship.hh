@@ -1,12 +1,14 @@
+/**
+ * @file ship.hh
+ * @brief The definition of the Ship class.
+ */
+
 #ifndef SHIP_HH
 #define SHIP_HH
 
-// The Ship class will hold the information for the River class
-// to find the optimum route for transactions.
-
 #ifndef NO_DIAGRAM
 #include <string>
-#include <vector>
+#include <list>
 #include <stdint.h>
 #include <iostream>
 #endif // NO_DIAGRAM
@@ -15,30 +17,64 @@
 
 using namespace std;
 
+/** @brief  Ship stores what it wants and what it is selling, as well as all destinations that it has been.
+ *  @details
+ *  The Ship class will hold the information for the River class
+ *  to find the optimum route for transactions.
+ */
 class Ship {
 private:
+    /** @brief  The ID (tag) of the product that the ship wants to buy.
+     */
     int32_t wanted;
+
+    /** @brief  The ID (tag) of the product that the ship wants to sell.
+     */
     int32_t for_sell;
+
+    /** @brief  The quantity of the product that the ship wants to buy.
+     */
     int wanted_quantity;
+
+    /** @brief  The quantity of the product that the ship wants to sell.
+     */
     int for_sell_quantity;
 
-    vector<string> visited_cities;
+    /** @brief  The container of all visited cities.
+     */
+    list<string> visited_cities;
+
 public:
+    /** @brief  The constructor doesn't do anything. However, the ship need to be set_all in order to be used.
+     */
     Ship();
+
+    /** @brief  The destructor doesn't do anything.
+     */
     ~Ship();
 
-    /** @brief  Returns the wanted product and value through referenced variables.
+    /** @brief  Returns the wanted product's ID through referenced variables.
      *  \pre    TRUE.
      *  \post   Necessary information are returned. 
     */
     uint32_t wanted_product() const;
+
+    /** @brief  Returns the wanted product's quantity through referenced variables.
+     *  \pre    TRUE.
+     *  \post   Necessary information are returned. 
+    */
     int wanted_number() const;
 
-    /** @brief  Returns the product for sell and its value through referenced variables.
+    /** @brief  Returns the ID of the product for sell through referenced variables.
      *  \pre    TRUE.
      *  \post   Necessary information are returned. 
     */
     uint32_t for_sell_product() const;
+
+    /** @brief  Returns the quantity of the product for sell and its value through referenced variables.
+     *  \pre    TRUE.
+     *  \post   Necessary information are returned. 
+    */
     int for_sell_number() const;
 
     /** @brief  Sets the wanted product and how many of it, and seemingly for the ones for_sell.

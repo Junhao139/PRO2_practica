@@ -1,3 +1,8 @@
+/**
+ * @file product.cc
+ * @brief Implementation for Product class in product.hh.
+ */
+
 #include "product.hh"
 
 Product::Product(int mass, int volume)

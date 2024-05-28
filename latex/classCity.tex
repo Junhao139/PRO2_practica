@@ -1,0 +1,635 @@
+\hypertarget{classCity}{}\doxysection{Referencia de la Clase City}
+\label{classCity}\index{City@{City}}
+
+
+The \mbox{\hyperlink{classCity}{City}} stores one inventory\textquotesingle{}s information.  
+
+
+
+
+{\ttfamily \#include $<$city.\+hh$>$}
+
+\doxysubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCity_1_1ProductDemand}{Product\+Demand}}
+\begin{DoxyCompactList}\small\item\em The data structure for information of a product in an inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCity_a1b1f549430f0a7ecd0ec7b1605415193}{City}} ()
+\begin{DoxyCompactList}\small\item\em Initializes all values. The city is therefore ready to be operated with. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCity_ae95feee8a1d4e1f14ea41ec89b47304f}{$\sim$\+City}} ()
+\begin{DoxyCompactList}\small\item\em The destructor does nothing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCity_a4504a02422bafe8ede0cf6ee0b05f44a}{clear\+\_\+inventory}} ()
+\begin{DoxyCompactList}\small\item\em Clear the inventory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCity_a3e3116da1f9204cd3a7ebfb41c554865}{add\+\_\+product\+\_\+to\+\_\+inventory}} (uint32\+\_\+t identifier, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pd, int in\+\_\+demand, int available)
+\begin{DoxyCompactList}\small\item\em Add one type of product to inventory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCity_a3325b581b2d337748041f4e3171eef94}{set\+\_\+product\+\_\+in\+\_\+inventory}} (uint32\+\_\+t identifier, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pd, int in\+\_\+demand, int available)
+\begin{DoxyCompactList}\small\item\em Modify the product in the inventory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCity_a031054194312c63b554bb6b3739855a1}{exist\+\_\+in\+\_\+inventory}} (uint32\+\_\+t product) const
+\begin{DoxyCompactList}\small\item\em Tells if the product is in the inventory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCity_a653d7d5f2afb4e7fee41ed11df9096b8}{consult\+\_\+product}} (uint32\+\_\+t identifier, int \&in\+\_\+demand, int \&available) const
+\begin{DoxyCompactList}\small\item\em Consult the information of a specific product. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCity_a8a18f8798be3b575b82ed60b419c43a4}{delete\+\_\+product}} (uint32\+\_\+t identifier, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pd)
+\begin{DoxyCompactList}\small\item\em The product is deleted from the inventory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCity_a487eced5439849e8b6fd0d15a6ad2721}{total\+\_\+mass\+\_\+and\+\_\+volume}} (int \&mass, int \&volume) const
+\begin{DoxyCompactList}\small\item\em Returns the total mass and volume of the inventory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCity_ac371c1af5248be2a8bff88b2ffc8e476}{has\+\_\+inventory}} () const
+\begin{DoxyCompactList}\small\item\em Tells if this city has an inventory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCity_a0ef4f6e0e352fb01890b0a9d3e2c6912}{trade\+\_\+with}} (\mbox{\hyperlink{classCity}{City}} \&foreign, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pd)
+\begin{DoxyCompactList}\small\item\em Trade between this city and the foreign one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCity_a33305ca75d4264ae5fd184c11712ff15}{write\+\_\+inventory}} () const
+\begin{DoxyCompactList}\small\item\em Write on the output using STL \char`\"{}cout\char`\"{} in the requiered format the whole inventory in numerical order of the product. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ uint32\+\_\+t, \mbox{\hyperlink{structCity_1_1ProductDemand}{Product\+Demand}} $>$ \mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}
+\begin{DoxyCompactList}\small\item\em The inventory of products of the city. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCity_a920252ef85a468ea985fc4b0cf729f80}{inventory\+\_\+disposition}}
+\begin{DoxyCompactList}\small\item\em Tells if the city has inventory. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\+\_\+mass}}
+\begin{DoxyCompactList}\small\item\em The total mass of the inventory. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\+\_\+volume}}
+\begin{DoxyCompactList}\small\item\em The total volume of the inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classCity}{City}} stores one inventory\textquotesingle{}s information. 
+
+\mbox{\hyperlink{classCity}{City}} corresponds with a node in the \mbox{\hyperlink{classRiver}{River}}\textquotesingle{}s Bin\+Tree structure It serves mainly for a container to manage city\textquotesingle{}s inventory. 
+
+Definición en la línea 24 del archivo city.\+hh.
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classCity_a1b1f549430f0a7ecd0ec7b1605415193}\label{classCity_a1b1f549430f0a7ecd0ec7b1605415193}} 
+\index{City@{City}!City@{City}}
+\index{City@{City}!City@{City}}
+\doxysubsubsection{\texorpdfstring{City()}{City()}}
+{\footnotesize\ttfamily City\+::\+City (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes all values. The city is therefore ready to be operated with. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+All values are initialized. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 8 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     this-\/>\mbox{\hyperlink{classCity_a920252ef85a468ea985fc4b0cf729f80}{inventory\_disposition}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{11     this-\/>\mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\_mass}} = 0;}
+\DoxyCodeLine{12     this-\/>\mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\_volume}} = 0;}
+\DoxyCodeLine{13 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCity_ae95feee8a1d4e1f14ea41ec89b47304f}\label{classCity_ae95feee8a1d4e1f14ea41ec89b47304f}} 
+\index{City@{City}!````~City@{$\sim$City}}
+\index{````~City@{$\sim$City}!City@{City}}
+\doxysubsubsection{\texorpdfstring{$\sim$City()}{~City()}}
+{\footnotesize\ttfamily City\+::$\sim$\+City (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The destructor does nothing. 
+
+
+
+Definición en la línea 15 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classCity_a3e3116da1f9204cd3a7ebfb41c554865}\label{classCity_a3e3116da1f9204cd3a7ebfb41c554865}} 
+\index{City@{City}!add\_product\_to\_inventory@{add\_product\_to\_inventory}}
+\index{add\_product\_to\_inventory@{add\_product\_to\_inventory}!City@{City}}
+\doxysubsubsection{\texorpdfstring{add\_product\_to\_inventory()}{add\_product\_to\_inventory()}}
+{\footnotesize\ttfamily void City\+::add\+\_\+product\+\_\+to\+\_\+inventory (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{identifier,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pd,  }\item[{int}]{in\+\_\+demand,  }\item[{int}]{available }\end{DoxyParamCaption})}
+
+
+
+Add one type of product to inventory. 
+
+\begin{DoxyPrecond}{Precondición}
+The product does not existe before in the inventory. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The product is added.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em pddata} & The database of all products, in which the \char`\"{}product\+\_\+id\char`\"{} exists. \\
+\hline
+{\em product\+\_\+id} & The ID (tag) of the product. \\
+\hline
+{\em in\+\_\+demand} & The product\textquotesingle{}s demand of the city. \\
+\hline
+{\em available} & The product\textquotesingle{}s availability of the city. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 28 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     this-\/>\mbox{\hyperlink{classCity_a920252ef85a468ea985fc4b0cf729f80}{inventory\_disposition}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{31     ProductDemand pdm = \{}
+\DoxyCodeLine{32         .in\_demand = in\_demand,}
+\DoxyCodeLine{33         .available = available}
+\DoxyCodeLine{34     \};}
+\DoxyCodeLine{35     this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.insert(pair<uint32\_t,ProductDemand>(identifier, pdm));}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{// declare a "{}nothing"{} product}}
+\DoxyCodeLine{38     \mbox{\hyperlink{classProduct}{Product}} product(0, 0);}
+\DoxyCodeLine{39     pd.consult\_product(product, identifier);}
+\DoxyCodeLine{40     this-\/>\mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\_mass}}    += product.get\_mass() * available;}
+\DoxyCodeLine{41     this-\/>\mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\_volume}}  += product.get\_volume() * available;}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCity_a4504a02422bafe8ede0cf6ee0b05f44a}\label{classCity_a4504a02422bafe8ede0cf6ee0b05f44a}} 
+\index{City@{City}!clear\_inventory@{clear\_inventory}}
+\index{clear\_inventory@{clear\_inventory}!City@{City}}
+\doxysubsubsection{\texorpdfstring{clear\_inventory()}{clear\_inventory()}}
+{\footnotesize\ttfamily void City\+::clear\+\_\+inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear the inventory. 
+
+\begin{DoxyPrecond}{Precondición}
+The city actually has an inventory. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+\mbox{\hyperlink{classCity}{City}}\textquotesingle{}s inventory is cleared. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 20 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.clear();}
+\DoxyCodeLine{23     this-\/>\mbox{\hyperlink{classCity_a920252ef85a468ea985fc4b0cf729f80}{inventory\_disposition}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{24     this-\/>\mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\_mass}} = 0;}
+\DoxyCodeLine{25     this-\/>\mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\_volume}} = 0;}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCity_a653d7d5f2afb4e7fee41ed11df9096b8}\label{classCity_a653d7d5f2afb4e7fee41ed11df9096b8}} 
+\index{City@{City}!consult\_product@{consult\_product}}
+\index{consult\_product@{consult\_product}!City@{City}}
+\doxysubsubsection{\texorpdfstring{consult\_product()}{consult\_product()}}
+{\footnotesize\ttfamily void City\+::consult\+\_\+product (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{identifier,  }\item[{int \&}]{in\+\_\+demand,  }\item[{int \&}]{available }\end{DoxyParamCaption}) const}
+
+
+
+Consult the information of a specific product. 
+
+\begin{DoxyPrecond}{Precondición}
+The product is in the inventory. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The information is returned via the references.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em identifier} & The ID (tag) of the product. \\
+\hline
+{\em in\+\_\+demand} & The demand of the product of the city, here the data is returned via reference. \\
+\hline
+{\em available} & The availability of the product of the city, here the data is returned via reference. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 73 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74 \{}
+\DoxyCodeLine{75     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.find(identifier);}
+\DoxyCodeLine{76     in\_demand = it-\/>second.in\_demand;}
+\DoxyCodeLine{77     available = it-\/>second.available;}
+\DoxyCodeLine{78 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCity_a8a18f8798be3b575b82ed60b419c43a4}\label{classCity_a8a18f8798be3b575b82ed60b419c43a4}} 
+\index{City@{City}!delete\_product@{delete\_product}}
+\index{delete\_product@{delete\_product}!City@{City}}
+\doxysubsubsection{\texorpdfstring{delete\_product()}{delete\_product()}}
+{\footnotesize\ttfamily void City\+::delete\+\_\+product (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{identifier,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pd }\end{DoxyParamCaption})}
+
+
+
+The product is deleted from the inventory. 
+
+\begin{DoxyPrecond}{Precondición}
+The product exists. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The product is deleted from the inventory, and the total mass and volume of the inventory is modified.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em identifier} & The ID (tag) of the product. \\
+\hline
+{\em pd} & The database of all products, in which the \char`\"{}identifier\char`\"{}\textquotesingle{}s product exists. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 80 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81 \{}
+\DoxyCodeLine{82     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.find(identifier);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{comment}{// declare a "{}nothing"{} product}}
+\DoxyCodeLine{85     \mbox{\hyperlink{classProduct}{Product}} product(0, 0);}
+\DoxyCodeLine{86     pd.consult\_product(product, identifier);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     this-\/>\mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\_mass}}    -\/= product.get\_mass() * it-\/>second.available;}
+\DoxyCodeLine{89     this-\/>\mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\_volume}}  -\/= product.get\_volume() * it-\/>second.available;}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.erase(it);}
+\DoxyCodeLine{92 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCity_a031054194312c63b554bb6b3739855a1}\label{classCity_a031054194312c63b554bb6b3739855a1}} 
+\index{City@{City}!exist\_in\_inventory@{exist\_in\_inventory}}
+\index{exist\_in\_inventory@{exist\_in\_inventory}!City@{City}}
+\doxysubsubsection{\texorpdfstring{exist\_in\_inventory()}{exist\_in\_inventory()}}
+{\footnotesize\ttfamily bool City\+::exist\+\_\+in\+\_\+inventory (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{product }\end{DoxyParamCaption}) const}
+
+
+
+Tells if the product is in the inventory. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Return TRUE only if the product is in the inventory. FALSE otherwise.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em product} & The ID (tag) of the product.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+TRUE if the city has the \char`\"{}product\char`\"{}. Otherwise FALSE. 
+\end{DoxyReturn}
+
+
+Definición en la línea 64 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65 \{}
+\DoxyCodeLine{66     \textcolor{keywordflow}{if} (not this-\/>\mbox{\hyperlink{classCity_ac371c1af5248be2a8bff88b2ffc8e476}{has\_inventory}}()) \{}
+\DoxyCodeLine{67         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.find(product);}
+\DoxyCodeLine{70     \textcolor{keywordflow}{return} it != this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.end();}
+\DoxyCodeLine{71 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCity_ac371c1af5248be2a8bff88b2ffc8e476}\label{classCity_ac371c1af5248be2a8bff88b2ffc8e476}} 
+\index{City@{City}!has\_inventory@{has\_inventory}}
+\index{has\_inventory@{has\_inventory}!City@{City}}
+\doxysubsubsection{\texorpdfstring{has\_inventory()}{has\_inventory()}}
+{\footnotesize\ttfamily bool City\+::has\+\_\+inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Tells if this city has an inventory. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Returns TRUE only if the city has an inventory.
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Devuelve}
+TRUE is this city has inventory (in this case the inventory is also empty). Otherwise FALSE. 
+\end{DoxyReturn}
+
+
+Definición en la línea 100 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101 \{}
+\DoxyCodeLine{102     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classCity_a920252ef85a468ea985fc4b0cf729f80}{inventory\_disposition}};}
+\DoxyCodeLine{103 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCity_a3325b581b2d337748041f4e3171eef94}\label{classCity_a3325b581b2d337748041f4e3171eef94}} 
+\index{City@{City}!set\_product\_in\_inventory@{set\_product\_in\_inventory}}
+\index{set\_product\_in\_inventory@{set\_product\_in\_inventory}!City@{City}}
+\doxysubsubsection{\texorpdfstring{set\_product\_in\_inventory()}{set\_product\_in\_inventory()}}
+{\footnotesize\ttfamily void City\+::set\+\_\+product\+\_\+in\+\_\+inventory (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{identifier,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pd,  }\item[{int}]{in\+\_\+demand,  }\item[{int}]{available }\end{DoxyParamCaption})}
+
+
+
+Modify the product in the inventory. 
+
+\begin{DoxyPrecond}{Precondición}
+The product already exists in the inventory. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The product is modified.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em pddata} & The database of all products, in which the \char`\"{}product\+\_\+id\char`\"{} exists. \\
+\hline
+{\em product\+\_\+id} & The ID (tag) of the product. \\
+\hline
+{\em in\+\_\+demand} & The product\textquotesingle{}s demand of the city. \\
+\hline
+{\em available} & The product\textquotesingle{}s availability of the city. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 44 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46     this-\/>\mbox{\hyperlink{classCity_a920252ef85a468ea985fc4b0cf729f80}{inventory\_disposition}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{47     ProductDemand pdm = \{}
+\DoxyCodeLine{48         .in\_demand = in\_demand,}
+\DoxyCodeLine{49         .available = available}
+\DoxyCodeLine{50     \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     map<uint32\_t, ProductDemand>::iterator it = this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.find(identifier);}
+\DoxyCodeLine{53     ProductDemand previous\_demand = it-\/>second;}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{// declare a "{}nothing"{} product}}
+\DoxyCodeLine{56     \mbox{\hyperlink{classProduct}{Product}} product(0, 0);}
+\DoxyCodeLine{57     pd.consult\_product(product, identifier);}
+\DoxyCodeLine{58     this-\/>\mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\_mass}}    += product.get\_mass() * (available -\/ previous\_demand.available);}
+\DoxyCodeLine{59     this-\/>\mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\_volume}}  += product.get\_volume() * (available -\/ previous\_demand.available);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     it-\/>second = pdm;}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCity_a487eced5439849e8b6fd0d15a6ad2721}\label{classCity_a487eced5439849e8b6fd0d15a6ad2721}} 
+\index{City@{City}!total\_mass\_and\_volume@{total\_mass\_and\_volume}}
+\index{total\_mass\_and\_volume@{total\_mass\_and\_volume}!City@{City}}
+\doxysubsubsection{\texorpdfstring{total\_mass\_and\_volume()}{total\_mass\_and\_volume()}}
+{\footnotesize\ttfamily void City\+::total\+\_\+mass\+\_\+and\+\_\+volume (\begin{DoxyParamCaption}\item[{int \&}]{mass,  }\item[{int \&}]{volume }\end{DoxyParamCaption}) const}
+
+
+
+Returns the total mass and volume of the inventory. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The \char`\"{}mass\char`\"{} and \char`\"{}volume\char`\"{} are returned via reference.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em mass} & The total mass to be returned. \\
+\hline
+{\em volume} & The total volume to be returned. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 94 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95 \{}
+\DoxyCodeLine{96     mass = this-\/>\mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\_mass}};}
+\DoxyCodeLine{97     volume = this-\/>\mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\_volume}};}
+\DoxyCodeLine{98 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCity_a0ef4f6e0e352fb01890b0a9d3e2c6912}\label{classCity_a0ef4f6e0e352fb01890b0a9d3e2c6912}} 
+\index{City@{City}!trade\_with@{trade\_with}}
+\index{trade\_with@{trade\_with}!City@{City}}
+\doxysubsubsection{\texorpdfstring{trade\_with()}{trade\_with()}}
+{\footnotesize\ttfamily void City\+::trade\+\_\+with (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCity}{City}} \&}]{foreign,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pd }\end{DoxyParamCaption})}
+
+
+
+Trade between this city and the foreign one. 
+
+\begin{DoxyPrecond}{Precondición}
+The foreign city exist, \char`\"{}pd\char`\"{} contains all necessary information for all intervened products. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The inventories of the foreign city and this city are modified.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em foreign} & The other city with which this city is trading. \\
+\hline
+{\em pd} & The database for all products. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 105 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{106 \{}
+\DoxyCodeLine{107     \textcolor{comment}{// if one doesn't have inventory then nothing to commmercialize}}
+\DoxyCodeLine{108     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classCity_ac371c1af5248be2a8bff88b2ffc8e476}{has\_inventory}}() and foreign.\mbox{\hyperlink{classCity_ac371c1af5248be2a8bff88b2ffc8e476}{has\_inventory}}()) \{}
+\DoxyCodeLine{109         \textcolor{keyword}{auto} map\_city\_1\_it  = this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.begin();}
+\DoxyCodeLine{110         \textcolor{keyword}{auto} map\_city\_1\_end = this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.end();}
+\DoxyCodeLine{111         \textcolor{keyword}{auto} map\_city\_2\_it  = foreign.\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.begin();}
+\DoxyCodeLine{112         \textcolor{keyword}{auto} map\_city\_2\_end = foreign.\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.end();}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114         \mbox{\hyperlink{classCity}{City}}\& city\_1 = *\textcolor{keyword}{this};}
+\DoxyCodeLine{115         \mbox{\hyperlink{classCity}{City}}\& city\_2 = foreign;}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117         \textcolor{comment}{// while both have not reached the end}}
+\DoxyCodeLine{118         \textcolor{keywordflow}{while} (map\_city\_1\_it != map\_city\_1\_end and map\_city\_2\_it != map\_city\_2\_end) \{}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120             \textcolor{comment}{// compare the product tag (a uint32\_t integer)}}
+\DoxyCodeLine{121             \textcolor{keywordflow}{if} (map\_city\_1\_it-\/>first < map\_city\_2\_it-\/>first) \{}
+\DoxyCodeLine{122                 ++map\_city\_1\_it;}
+\DoxyCodeLine{123             \}}
+\DoxyCodeLine{124             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (map\_city\_1\_it-\/>first > map\_city\_2\_it-\/>first) \{}
+\DoxyCodeLine{125                 ++map\_city\_2\_it;}
+\DoxyCodeLine{126             \}}
+\DoxyCodeLine{127             \textcolor{keywordflow}{else} \{ }
+\DoxyCodeLine{128                 \textcolor{comment}{// they have got the same product!}}
+\DoxyCodeLine{129                 ProductDemand\& city1\_demand = map\_city\_1\_it-\/>second;}
+\DoxyCodeLine{130                 ProductDemand\& city2\_demand = map\_city\_2\_it-\/>second;}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132                 \mbox{\hyperlink{classProduct}{Product}} product\_info(0, 0);}
+\DoxyCodeLine{133                 pd.consult\_product(product\_info, map\_city\_1\_it-\/>first);}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135                 \textcolor{comment}{// if city\_1 has more than it needs of what city\_2 needs}}
+\DoxyCodeLine{136                 \textcolor{keywordflow}{if} (city1\_demand.available > city1\_demand.in\_demand and city2\_demand.available < city2\_demand.in\_demand) \{}
+\DoxyCodeLine{137                     \textcolor{keywordtype}{int} city1\_can\_sell = city1\_demand.available -\/ city1\_demand.in\_demand;}
+\DoxyCodeLine{138                     \textcolor{keywordtype}{int} city2\_needs\_to\_buy = city2\_demand.in\_demand -\/ city2\_demand.available;}
+\DoxyCodeLine{139                     }
+\DoxyCodeLine{140                     \textcolor{keywordtype}{int} final\_deal = min(city1\_can\_sell, city2\_needs\_to\_buy);}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142                     city1\_demand.available -\/= final\_deal;}
+\DoxyCodeLine{143                     city\_1.\mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\_mass}}   -\/= final\_deal * product\_info.get\_mass();}
+\DoxyCodeLine{144                     city\_1.\mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\_volume}} -\/= final\_deal * product\_info.get\_volume();}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146                     city2\_demand.available += final\_deal;}
+\DoxyCodeLine{147                     city\_2.\mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\_mass}}   += final\_deal * product\_info.get\_mass();}
+\DoxyCodeLine{148                     city\_2.\mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\_volume}} += final\_deal * product\_info.get\_volume();}
+\DoxyCodeLine{149                 \}}
+\DoxyCodeLine{150                 \textcolor{comment}{// if city\_1 needs what has exceeded in city\_2}}
+\DoxyCodeLine{151                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (city2\_demand.available > city2\_demand.in\_demand and city1\_demand.available < city1\_demand.in\_demand) \{}
+\DoxyCodeLine{152                     \textcolor{keywordtype}{int} city2\_can\_sell = city2\_demand.available -\/ city2\_demand.in\_demand;}
+\DoxyCodeLine{153                     \textcolor{keywordtype}{int} city1\_needs\_to\_buy = city1\_demand.in\_demand -\/ city1\_demand.available;}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155                     \textcolor{keywordtype}{int} final\_deal = min(city2\_can\_sell, city1\_needs\_to\_buy);}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157                     city2\_demand.available -\/= final\_deal;}
+\DoxyCodeLine{158                     city\_2.\mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\_mass}}   -\/= final\_deal * product\_info.get\_mass();}
+\DoxyCodeLine{159                     city\_2.\mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\_volume}} -\/= final\_deal * product\_info.get\_volume();}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161                     city1\_demand.available += final\_deal;}
+\DoxyCodeLine{162                     city\_1.\mbox{\hyperlink{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}{total\_mass}}   += final\_deal * product\_info.get\_mass();}
+\DoxyCodeLine{163                     city\_1.\mbox{\hyperlink{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}{total\_volume}} += final\_deal * product\_info.get\_volume();}
+\DoxyCodeLine{164                 \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166                 ++map\_city\_1\_it;}
+\DoxyCodeLine{167                 ++map\_city\_2\_it;}
+\DoxyCodeLine{168             \}            }
+\DoxyCodeLine{169         \}}
+\DoxyCodeLine{170     \}}
+\DoxyCodeLine{171 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCity_a33305ca75d4264ae5fd184c11712ff15}\label{classCity_a33305ca75d4264ae5fd184c11712ff15}} 
+\index{City@{City}!write\_inventory@{write\_inventory}}
+\index{write\_inventory@{write\_inventory}!City@{City}}
+\doxysubsubsection{\texorpdfstring{write\_inventory()}{write\_inventory()}}
+{\footnotesize\ttfamily void City\+::write\+\_\+inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Write on the output using STL \char`\"{}cout\char`\"{} in the requiered format the whole inventory in numerical order of the product. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The inventory, if exists and has elements, will be written on the output. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 173 del archivo city.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{174 \{}
+\DoxyCodeLine{175     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classCity_ac371c1af5248be2a8bff88b2ffc8e476}{has\_inventory}}()) \{}
+\DoxyCodeLine{176         \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.begin();}
+\DoxyCodeLine{177         \textcolor{keyword}{auto} end = this-\/>\mbox{\hyperlink{classCity_a5d97e76cb082d5bea5167abe031f56f0}{inventory}}.end();}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179         \textcolor{keywordflow}{while} (it != end) \{}
+\DoxyCodeLine{180             cout << it-\/>first << \textcolor{charliteral}{' '}}
+\DoxyCodeLine{181                  << it-\/>second.available << \textcolor{charliteral}{' '} << it-\/>second.in\_demand}
+\DoxyCodeLine{182                  << endl;}
+\DoxyCodeLine{183             ++it;}
+\DoxyCodeLine{184         \}   }
+\DoxyCodeLine{185     \}}
+\DoxyCodeLine{186 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classCity_a5d97e76cb082d5bea5167abe031f56f0}\label{classCity_a5d97e76cb082d5bea5167abe031f56f0}} 
+\index{City@{City}!inventory@{inventory}}
+\index{inventory@{inventory}!City@{City}}
+\doxysubsubsection{\texorpdfstring{inventory}{inventory}}
+{\footnotesize\ttfamily map$<$uint32\+\_\+t, \mbox{\hyperlink{structCity_1_1ProductDemand}{Product\+Demand}}$>$ City\+::inventory\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The inventory of products of the city. 
+
+
+
+Definición en la línea 35 del archivo city.\+hh.
+
+\mbox{\Hypertarget{classCity_a920252ef85a468ea985fc4b0cf729f80}\label{classCity_a920252ef85a468ea985fc4b0cf729f80}} 
+\index{City@{City}!inventory\_disposition@{inventory\_disposition}}
+\index{inventory\_disposition@{inventory\_disposition}!City@{City}}
+\doxysubsubsection{\texorpdfstring{inventory\_disposition}{inventory\_disposition}}
+{\footnotesize\ttfamily bool City\+::inventory\+\_\+disposition\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if the city has inventory. 
+
+
+
+Definición en la línea 39 del archivo city.\+hh.
+
+\mbox{\Hypertarget{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}\label{classCity_a6f6d790f80af9ef0d6e39c41d7e16f49}} 
+\index{City@{City}!total\_mass@{total\_mass}}
+\index{total\_mass@{total\_mass}!City@{City}}
+\doxysubsubsection{\texorpdfstring{total\_mass}{total\_mass}}
+{\footnotesize\ttfamily int City\+::total\+\_\+mass\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The total mass of the inventory. 
+
+
+
+Definición en la línea 43 del archivo city.\+hh.
+
+\mbox{\Hypertarget{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}\label{classCity_aeaa24f7e79403cb85287cfc1aa6df4bb}} 
+\index{City@{City}!total\_volume@{total\_volume}}
+\index{total\_volume@{total\_volume}!City@{City}}
+\doxysubsubsection{\texorpdfstring{total\_volume}{total\_volume}}
+{\footnotesize\ttfamily int City\+::total\+\_\+volume\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The total volume of the inventory. 
+
+
+
+Definición en la línea 47 del archivo city.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{city_8hh}{city.\+hh}}\item 
+\mbox{\hyperlink{city_8cc}{city.\+cc}}\end{DoxyCompactItemize}

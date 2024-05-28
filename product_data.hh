@@ -1,8 +1,10 @@
+/**
+ * @file product_data.hh
+ * @brief The definition of the ProductData class.
+ */
+
 #ifndef PRODUCT_DATA_HH
 #define PRODUCT_DATA_HH
-
-// The class that administrate the variety of all the products.
-// Especifically, it serves for the requirements 6 and 7.
 
 #ifndef NO_DIAGRAM
 #include <vector>
@@ -10,15 +12,21 @@
 #endif // NO_DIAGRAM
 
 #include "product.hh"
-
 using namespace std;
 
+/** @brief  This class is aimed for storing information of all products.
+ *  @details
+ *  The class that administrate the variety of all the products.
+ *  Especifically, it serves for the requirements 6 and 7.
+ */
 class ProductData {
 private:
     /** @brief  The storage for all products, ordered according to the product's ID.
     */
     vector<Product> all_products;
 
+    /** @brief  The index of the new product if such new one is to be added.
+    */
     int last_available_index;
 public:
     /** @brief  Constructor. When called, the ProductData is cleared.

@@ -25,4 +25,3 @@ ship.o: ship.cc
 
 clean:
 	rm -f *.o
-	rm -f *.gch

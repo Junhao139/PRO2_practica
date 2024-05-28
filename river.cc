@@ -1,3 +1,8 @@
+/**
+ * @file river.cc
+ * @brief Implementation for River class in river.hh.
+ */
+
 #include "river.hh"
 
 BinTree<string> River::read_input_bin_tree()
@@ -25,7 +30,7 @@ River::SubrouteInfo River::ship_find_optimum_route(
 {
     if (city.empty()) {
         return srinfo;
-    }
+    };
 
     // try to transact
     bool transacted = false;
@@ -48,6 +53,7 @@ River::SubrouteInfo River::ship_find_optimum_route(
         }
     }
 
+    // if transacted too much, reset to zero
     if (srinfo.left_for_buy < 0) srinfo.left_for_buy = 0;
     if (srinfo.left_for_sell < 0) srinfo.left_for_sell = 0;
 
@@ -73,6 +79,7 @@ River::SubrouteInfo River::ship_find_optimum_route(
     }
     // if in both subroutes have done trades
     else if (sum_srinfo_this != sum_srinfo_left and sum_srinfo_this != sum_srinfo_right) {
+        // compare in which route sold more
         if (sum_srinfo_left < sum_srinfo_right) {
             left_subroute.push_front(city.value());
             route = left_subroute;
@@ -82,6 +89,7 @@ River::SubrouteInfo River::ship_find_optimum_route(
             route = right_subroute;
             return right_accumulated;
         } else {
+            // sold equally, compare which route is shorter
             if (left_subroute.size() < right_subroute.size()) {
                 left_subroute.push_front(city.value());
                 route = left_subroute;
@@ -91,6 +99,7 @@ River::SubrouteInfo River::ship_find_optimum_route(
                 route = right_subroute;
                 return right_accumulated;
             } else {
+                // equally short, select the left one
                 left_subroute.push_front(city.value());
                 route = left_subroute;
                 return left_accumulated;

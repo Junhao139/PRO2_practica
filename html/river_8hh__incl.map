@@ -1,0 +1,7 @@
+<map id="river.hh" name="river.hh">
+<area shape="rect" id="node1" title="The definition of the River class, whose usage is to store the basin&#39;s structure and to manage the da..." alt="" coords="95,5,165,32"/>
+<area shape="rect" id="node2" href="$city_8hh.html" title="City class definition." alt="" coords="63,80,127,107"/>
+<area shape="rect" id="node5" href="$ship_8hh.html" title="The definition of the Ship class." alt="" coords="157,155,226,181"/>
+<area shape="rect" id="node3" href="$product__data_8hh.html" title="The definition of the ProductData class." alt="" coords="5,155,132,181"/>
+<area shape="rect" id="node4" href="$product_8hh.html" title="The Product class&#39;s definition." alt="" coords="85,229,175,256"/>
+</map>

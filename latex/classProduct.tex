@@ -1,0 +1,189 @@
+\hypertarget{classProduct}{}\doxysection{Referencia de la Clase Product}
+\label{classProduct}\index{Product@{Product}}
+
+
+This is one product\textquotesingle{}s info.  
+
+
+
+
+{\ttfamily \#include $<$product.\+hh$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProduct_a501f8bd54c19167878aeb1b253a6824f}{Product}} (int \mbox{\hyperlink{classProduct_ad7c0f0d3fc48acc802cdec8b2df66805}{mass}}, int \mbox{\hyperlink{classProduct_afa8c9c45dada6dd87d6ccd200d1d92b9}{volume}})
+\begin{DoxyCompactList}\small\item\em The constructor. It sets the mass and volume datas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProduct_abe0afd3bea96d979185ec2cfdf681e6f}{$\sim$\+Product}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classProduct}{Product}} object. It actually does nothing except what is automatically done by C++. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProduct_abf456872678e24cb50d10de0b9465643}{get\+\_\+mass}} () const
+\begin{DoxyCompactList}\small\item\em Get the mass. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProduct_ac7a1df307388614b6dd5d1eaed5530b9}{get\+\_\+volume}} () const
+\begin{DoxyCompactList}\small\item\em Get the volume. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classProduct_ad7c0f0d3fc48acc802cdec8b2df66805}{mass}}
+\begin{DoxyCompactList}\small\item\em The mass of one product. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProduct_afa8c9c45dada6dd87d6ccd200d1d92b9}{volume}}
+\begin{DoxyCompactList}\small\item\em The volume of one product. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+This is one product\textquotesingle{}s info. 
+
+Definición en la línea 12 del archivo product.\+hh.
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classProduct_a501f8bd54c19167878aeb1b253a6824f}\label{classProduct_a501f8bd54c19167878aeb1b253a6824f}} 
+\index{Product@{Product}!Product@{Product}}
+\index{Product@{Product}!Product@{Product}}
+\doxysubsubsection{\texorpdfstring{Product()}{Product()}}
+{\footnotesize\ttfamily Product\+::\+Product (\begin{DoxyParamCaption}\item[{int}]{mass,  }\item[{int}]{volume }\end{DoxyParamCaption})}
+
+
+
+The constructor. It sets the mass and volume datas. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+\char`\"{}mass\char`\"{} and \char`\"{}volume\char`\"{} are modified.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em mass} & The mass of one product. \\
+\hline
+{\em volume} & The volume of one product. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 8 del archivo product.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     this-\/>\mbox{\hyperlink{classProduct_ad7c0f0d3fc48acc802cdec8b2df66805}{mass}} = \mbox{\hyperlink{classProduct_ad7c0f0d3fc48acc802cdec8b2df66805}{mass}};}
+\DoxyCodeLine{11     this-\/>\mbox{\hyperlink{classProduct_afa8c9c45dada6dd87d6ccd200d1d92b9}{volume}} = \mbox{\hyperlink{classProduct_afa8c9c45dada6dd87d6ccd200d1d92b9}{volume}};}
+\DoxyCodeLine{12 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProduct_abe0afd3bea96d979185ec2cfdf681e6f}\label{classProduct_abe0afd3bea96d979185ec2cfdf681e6f}} 
+\index{Product@{Product}!````~Product@{$\sim$Product}}
+\index{````~Product@{$\sim$Product}!Product@{Product}}
+\doxysubsubsection{\texorpdfstring{$\sim$Product()}{~Product()}}
+{\footnotesize\ttfamily Product\+::$\sim$\+Product (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classProduct}{Product}} object. It actually does nothing except what is automatically done by C++. 
+
+
+
+Definición en la línea 14 del archivo product.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classProduct_abf456872678e24cb50d10de0b9465643}\label{classProduct_abf456872678e24cb50d10de0b9465643}} 
+\index{Product@{Product}!get\_mass@{get\_mass}}
+\index{get\_mass@{get\_mass}!Product@{Product}}
+\doxysubsubsection{\texorpdfstring{get\_mass()}{get\_mass()}}
+{\footnotesize\ttfamily int Product\+::get\+\_\+mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the mass. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The mass is returned. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 19 del archivo product.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classProduct_ad7c0f0d3fc48acc802cdec8b2df66805}{mass}};}
+\DoxyCodeLine{22 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProduct_ac7a1df307388614b6dd5d1eaed5530b9}\label{classProduct_ac7a1df307388614b6dd5d1eaed5530b9}} 
+\index{Product@{Product}!get\_volume@{get\_volume}}
+\index{get\_volume@{get\_volume}!Product@{Product}}
+\doxysubsubsection{\texorpdfstring{get\_volume()}{get\_volume()}}
+{\footnotesize\ttfamily int Product\+::get\+\_\+volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the volume. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The volume is returned. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 24 del archivo product.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classProduct_afa8c9c45dada6dd87d6ccd200d1d92b9}{volume}};}
+\DoxyCodeLine{27 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classProduct_ad7c0f0d3fc48acc802cdec8b2df66805}\label{classProduct_ad7c0f0d3fc48acc802cdec8b2df66805}} 
+\index{Product@{Product}!mass@{mass}}
+\index{mass@{mass}!Product@{Product}}
+\doxysubsubsection{\texorpdfstring{mass}{mass}}
+{\footnotesize\ttfamily int Product\+::mass\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The mass of one product. 
+
+
+
+Definición en la línea 16 del archivo product.\+hh.
+
+\mbox{\Hypertarget{classProduct_afa8c9c45dada6dd87d6ccd200d1d92b9}\label{classProduct_afa8c9c45dada6dd87d6ccd200d1d92b9}} 
+\index{Product@{Product}!volume@{volume}}
+\index{volume@{volume}!Product@{Product}}
+\doxysubsubsection{\texorpdfstring{volume}{volume}}
+{\footnotesize\ttfamily int Product\+::volume\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The volume of one product. 
+
+
+
+Definición en la línea 20 del archivo product.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{product_8hh}{product.\+hh}}\item 
+\mbox{\hyperlink{product_8cc}{product.\+cc}}\end{DoxyCompactItemize}

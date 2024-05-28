@@ -1,0 +1,249 @@
+\hypertarget{classProductData}{}\doxysection{Referencia de la Clase Product\+Data}
+\label{classProductData}\index{ProductData@{ProductData}}
+
+
+This class is aimed for storing information of all products.  
+
+
+
+
+{\ttfamily \#include $<$product\+\_\+data.\+hh$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProductData_aa3dbb3018cc29d2a2cd5b3f933c0a4b5}{Product\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. When called, the \mbox{\hyperlink{classProductData}{Product\+Data}} is cleared. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProductData_a7f688813dac04b62b4703e443a5b7a99}{$\sim$\+Product\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProductData_a8602344f287acb2967f826c7cbc571af}{add\+\_\+new\+\_\+product}} (\mbox{\hyperlink{classProduct}{Product}} const \&product)
+\begin{DoxyCompactList}\small\item\em Add a new type of product to all\+\_\+products. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProductData_ac3166a6cfded6419afc3e622038854bc}{consult\+\_\+product}} (\mbox{\hyperlink{classProduct}{Product}} \&product, uint32\+\_\+t identifier) const
+\begin{DoxyCompactList}\small\item\em Given a \mbox{\hyperlink{classProduct}{Product}} identifier, return the product (unmodifiable). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProductData_af6b1c10df64f92d61f5ba0693e89b6e8}{database\+\_\+size}} () const
+\begin{DoxyCompactList}\small\item\em Returns how many products are there in the pool. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProductData_a3d6dd5f49f87b6009c4b4c59083326f0}{product\+\_\+exists}} (uint32\+\_\+t tag) const
+\begin{DoxyCompactList}\small\item\em Tells if the product ID is a valid ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{classProduct}{Product}} $>$ \mbox{\hyperlink{classProductData_ada8c15dd5c02ea83235671b58e531ee7}{all\+\_\+products}}
+\begin{DoxyCompactList}\small\item\em The storage for all products, ordered according to the product\textquotesingle{}s ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProductData_a5ba6baef8f1788d14e756ebd628504b1}{last\+\_\+available\+\_\+index}}
+\begin{DoxyCompactList}\small\item\em The index of the new product if such new one is to be added. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+This class is aimed for storing information of all products. 
+
+The class that administrate the variety of all the products. Especifically, it serves for the requirements 6 and 7. 
+
+Definición en la línea 22 del archivo product\+\_\+data.\+hh.
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classProductData_aa3dbb3018cc29d2a2cd5b3f933c0a4b5}\label{classProductData_aa3dbb3018cc29d2a2cd5b3f933c0a4b5}} 
+\index{ProductData@{ProductData}!ProductData@{ProductData}}
+\index{ProductData@{ProductData}!ProductData@{ProductData}}
+\doxysubsubsection{\texorpdfstring{ProductData()}{ProductData()}}
+{\footnotesize\ttfamily Product\+Data\+::\+Product\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. When called, the \mbox{\hyperlink{classProductData}{Product\+Data}} is cleared. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+\mbox{\hyperlink{classProductData}{Product\+Data}} is cleared and ready for new data. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 8 del archivo product\+\_\+data.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     this-\/>\mbox{\hyperlink{classProductData_ada8c15dd5c02ea83235671b58e531ee7}{all\_products}} = vector<Product>();}
+\DoxyCodeLine{11     this-\/>\mbox{\hyperlink{classProductData_a5ba6baef8f1788d14e756ebd628504b1}{last\_available\_index}} = 0;}
+\DoxyCodeLine{12 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProductData_a7f688813dac04b62b4703e443a5b7a99}\label{classProductData_a7f688813dac04b62b4703e443a5b7a99}} 
+\index{ProductData@{ProductData}!````~ProductData@{$\sim$ProductData}}
+\index{````~ProductData@{$\sim$ProductData}!ProductData@{ProductData}}
+\doxysubsubsection{\texorpdfstring{$\sim$ProductData()}{~ProductData()}}
+{\footnotesize\ttfamily Product\+Data\+::$\sim$\+Product\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Ensures all memory are freed. Since no pointers are used, it does nothing. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 14 del archivo product\+\_\+data.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classProductData_a8602344f287acb2967f826c7cbc571af}\label{classProductData_a8602344f287acb2967f826c7cbc571af}} 
+\index{ProductData@{ProductData}!add\_new\_product@{add\_new\_product}}
+\index{add\_new\_product@{add\_new\_product}!ProductData@{ProductData}}
+\doxysubsubsection{\texorpdfstring{add\_new\_product()}{add\_new\_product()}}
+{\footnotesize\ttfamily void Product\+Data\+::add\+\_\+new\+\_\+product (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProduct}{Product}} const \&}]{product }\end{DoxyParamCaption})}
+
+
+
+Add a new type of product to all\+\_\+products. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The product is stored in the pool, and its assigned identifier is returned. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 19 del archivo product\+\_\+data.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     this-\/>\mbox{\hyperlink{classProductData_ada8c15dd5c02ea83235671b58e531ee7}{all\_products}}.push\_back(product);}
+\DoxyCodeLine{22     ++this-\/>\mbox{\hyperlink{classProductData_a5ba6baef8f1788d14e756ebd628504b1}{last\_available\_index}};}
+\DoxyCodeLine{23 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProductData_ac3166a6cfded6419afc3e622038854bc}\label{classProductData_ac3166a6cfded6419afc3e622038854bc}} 
+\index{ProductData@{ProductData}!consult\_product@{consult\_product}}
+\index{consult\_product@{consult\_product}!ProductData@{ProductData}}
+\doxysubsubsection{\texorpdfstring{consult\_product()}{consult\_product()}}
+{\footnotesize\ttfamily void Product\+Data\+::consult\+\_\+product (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProduct}{Product}} \&}]{product,  }\item[{uint32\+\_\+t}]{identifier }\end{DoxyParamCaption}) const}
+
+
+
+Given a \mbox{\hyperlink{classProduct}{Product}} identifier, return the product (unmodifiable). 
+
+\begin{DoxyPrecond}{Precondición}
+The identifier is existent. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The product\textquotesingle{}s data is returned via reference. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 25 del archivo product\+\_\+data.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     product = this-\/>\mbox{\hyperlink{classProductData_ada8c15dd5c02ea83235671b58e531ee7}{all\_products}}[identifier -\/ 1];}
+\DoxyCodeLine{28 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProductData_af6b1c10df64f92d61f5ba0693e89b6e8}\label{classProductData_af6b1c10df64f92d61f5ba0693e89b6e8}} 
+\index{ProductData@{ProductData}!database\_size@{database\_size}}
+\index{database\_size@{database\_size}!ProductData@{ProductData}}
+\doxysubsubsection{\texorpdfstring{database\_size()}{database\_size()}}
+{\footnotesize\ttfamily int Product\+Data\+::database\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns how many products are there in the pool. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Returns a integer telling how many products are in the database. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 30 del archivo product\+\_\+data.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classProductData_a5ba6baef8f1788d14e756ebd628504b1}{last\_available\_index}};}
+\DoxyCodeLine{33 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProductData_a3d6dd5f49f87b6009c4b4c59083326f0}\label{classProductData_a3d6dd5f49f87b6009c4b4c59083326f0}} 
+\index{ProductData@{ProductData}!product\_exists@{product\_exists}}
+\index{product\_exists@{product\_exists}!ProductData@{ProductData}}
+\doxysubsubsection{\texorpdfstring{product\_exists()}{product\_exists()}}
+{\footnotesize\ttfamily bool Product\+Data\+::product\+\_\+exists (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{tag }\end{DoxyParamCaption}) const}
+
+
+
+Tells if the product ID is a valid ID. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Returns TRUE only if there is a product that has the ID. Otherwise FALSE. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 35 del archivo product\+\_\+data.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} tag -\/ 1 < \mbox{\hyperlink{classProductData_a5ba6baef8f1788d14e756ebd628504b1}{last\_available\_index}};}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classProductData_ada8c15dd5c02ea83235671b58e531ee7}\label{classProductData_ada8c15dd5c02ea83235671b58e531ee7}} 
+\index{ProductData@{ProductData}!all\_products@{all\_products}}
+\index{all\_products@{all\_products}!ProductData@{ProductData}}
+\doxysubsubsection{\texorpdfstring{all\_products}{all\_products}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classProduct}{Product}}$>$ Product\+Data\+::all\+\_\+products\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The storage for all products, ordered according to the product\textquotesingle{}s ID. 
+
+
+
+Definición en la línea 26 del archivo product\+\_\+data.\+hh.
+
+\mbox{\Hypertarget{classProductData_a5ba6baef8f1788d14e756ebd628504b1}\label{classProductData_a5ba6baef8f1788d14e756ebd628504b1}} 
+\index{ProductData@{ProductData}!last\_available\_index@{last\_available\_index}}
+\index{last\_available\_index@{last\_available\_index}!ProductData@{ProductData}}
+\doxysubsubsection{\texorpdfstring{last\_available\_index}{last\_available\_index}}
+{\footnotesize\ttfamily int Product\+Data\+::last\+\_\+available\+\_\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The index of the new product if such new one is to be added. 
+
+
+
+Definición en la línea 30 del archivo product\+\_\+data.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{product__data_8hh}{product\+\_\+data.\+hh}}\item 
+\mbox{\hyperlink{product__data_8cc}{product\+\_\+data.\+cc}}\end{DoxyCompactItemize}

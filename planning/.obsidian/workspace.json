@@ -33,7 +33,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Operaciones.md",
+                "file": "preguntas profe.md",
                 "mode": "source",
                 "source": false
               }
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Operaciones.md",
+                "file": "preguntas profe.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Operaciones.md",
+                "file": "preguntas profe.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Operaciones.md"
+                "file": "preguntas profe.md"
               }
             }
           }
@@ -169,8 +169,8 @@
   },
   "active": "21e86aea25d9c02c",
   "lastOpenFiles": [
-    "preguntas profe.md",
     "Operaciones.md",
+    "preguntas profe.md",
     "Mensajes de error.md"
   ]
 }

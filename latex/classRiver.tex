@@ -1,0 +1,1005 @@
+\hypertarget{classRiver}{}\doxysection{Referencia de la Clase River}
+\label{classRiver}\index{River@{River}}
+
+
+\mbox{\hyperlink{classRiver}{River}} administrates the basin\textquotesingle{}s city structure and the set of all inventories.  
+
+
+
+
+{\ttfamily \#include $<$river.\+hh$>$}
+
+\doxysubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRiver_1_1SubrouteInfo}{Subroute\+Info}}
+\begin{DoxyCompactList}\small\item\em This is a auxiliary data structure for ship\+\_\+find\+\_\+optimum\+\_\+route function. It is equivalent (but more elegantly) to a pair$<$int,int$>$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRiver_a305d3ec8496a5373328045da3b8d8362}{River}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. It sets everything to its initial state. Basin is empty. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRiver_a5376d67ed6902e25756c3f19294896f6}{$\sim$\+River}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. It calls the destructor of child elements. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_a3635b005f7fec3cf791f2f18ccfcead0}{input\+\_\+river\+\_\+structure}} ()
+\begin{DoxyCompactList}\small\item\em Read from input the new structure of the basin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_a42389dcdd2058c38e7189c5420ef36f8}{ship\+\_\+travelling}} (\mbox{\hyperlink{classShip}{Ship}} \&ship, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pddata, int \&bought\+\_\+units, int \&sold\+\_\+units)
+\begin{DoxyCompactList}\small\item\em Let the ship select route and trade. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_a45ffebc0708462e2b557af7d5144f6c1}{trade}} (string const \&city\+\_\+1, string const \&city\+\_\+2, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pddata)
+\begin{DoxyCompactList}\small\item\em Trade between 2 cities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_a29484db8b3d3813cdc9a15924c77d9cb}{redistribute}} (\mbox{\hyperlink{classProductData}{Product\+Data}} const \&pddata)
+\begin{DoxyCompactList}\small\item\em Redistribute according to the requirement 17 of the documentation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRiver_a94aaa156469562b25c648f630431d973}{city\+\_\+exists\+\_\+in\+\_\+basin}} (string const \&city\+\_\+id) const
+\begin{DoxyCompactList}\small\item\em Tells if the city exists in the basin. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRiver_adb3c9f25261f7a8a3d45d50d80d186a5}{city\+\_\+consult\+\_\+product}} (string const \&city\+\_\+id, uint32\+\_\+t product\+\_\+id, int \&in\+\_\+demand, int \&available) const
+\begin{DoxyCompactList}\small\item\em Consult the information of a product of a city given their corresponding IDs. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRiver_a4746bb1922b988d20a1e59012962f764}{city\+\_\+has\+\_\+product}} (string const \&city\+\_\+id, uint32\+\_\+t product) const
+\begin{DoxyCompactList}\small\item\em Tells if city has the product. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_a6c49c0dc0a272b93df57ae5dab34d673}{city\+\_\+modify\+\_\+product}} (string const \&city\+\_\+id, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pddata, uint32\+\_\+t product\+\_\+id, int in\+\_\+demand, int available)
+\begin{DoxyCompactList}\small\item\em Modify the information of a product of a city given their corresponding IDs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_a5bb977a6f8a8d3b2b73747da7b134391}{city\+\_\+add\+\_\+product}} (string const \&city\+\_\+id, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pddata, uint32\+\_\+t product\+\_\+id, int in\+\_\+demand, int available)
+\begin{DoxyCompactList}\small\item\em Add a product to a city given their corresponding IDs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_a3768eb4430e727116a7a045b20849bef}{city\+\_\+delete\+\_\+product}} (string const \&city\+\_\+id, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pddata, uint32\+\_\+t product\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Delete one product from the inventory of the city given their corresponding IDs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_ac3fb12747ce0b6e735989e31e5291903}{city\+\_\+information}} (string const \&city\+\_\+id, int \&total\+\_\+mass, int \&total\+\_\+volume, bool \&has\+\_\+inventory) const
+\begin{DoxyCompactList}\small\item\em Returns the city inventory\textquotesingle{}s basic information\+: total mass, total volume, if has inventory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_a4b7ed659014e46179cfddd31e284ab84}{city\+\_\+clear\+\_\+inventory}} (string const \&city\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Clear the inventory of the city. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_abd22d89aedee4dd25f6f54874104e1fe}{city\+\_\+write\+\_\+inventory}} (string const \&city\+\_\+id) const
+\begin{DoxyCompactList}\small\item\em Write on the output using C++ STL \char`\"{}cout\char`\"{} in the requiered format the whole inventory of the \char`\"{}city\char`\"{} in numerical ascending order of the ID of the product. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+Bin\+Tree$<$ string $>$ \mbox{\hyperlink{classRiver_a335ffb8cb51fef8b65fb39bbc6e3ca06}{read\+\_\+input\+\_\+bin\+\_\+tree}} ()
+\begin{DoxyCompactList}\small\item\em The function reads a binary tree structure in Pre\+Order format recursively from the input. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structRiver_1_1SubrouteInfo}{Subroute\+Info}} \mbox{\hyperlink{classRiver_a7ad1f0e889d13d9e40ded70417470da0}{ship\+\_\+find\+\_\+optimum\+\_\+route}} (list$<$ string $>$ \&route, Bin\+Tree$<$ string $>$ city, \mbox{\hyperlink{classShip}{Ship}} const \&ship, \mbox{\hyperlink{structRiver_1_1SubrouteInfo}{Subroute\+Info}} srinfo)
+\begin{DoxyCompactList}\small\item\em Finds recursively the best route. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_a8ebf337f05ae40a51947057194ac52a1}{ship\+\_\+transact}} (string const \&city\+\_\+name, \mbox{\hyperlink{classShip}{Ship}} \&ship, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pddata)
+\begin{DoxyCompactList}\small\item\em Given the city\textquotesingle{}s name and the ship, transact between them modifying eachone\textquotesingle{}s inventory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRiver_aa8f131467eb30869b86b7d50b58b8ffe}{redistribute\+\_\+\+REC}} (Bin\+Tree$<$ string $>$ this\+\_\+city, \mbox{\hyperlink{classProductData}{Product\+Data}} const \&pddata)
+\begin{DoxyCompactList}\small\item\em Each city interchange products with the one on the left of the river stucture, and then the one on the right. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ string, \mbox{\hyperlink{classCity}{City}} $>$ \mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\+\_\+database}}
+\begin{DoxyCompactList}\small\item\em The satabase store inventories identified with string names. \end{DoxyCompactList}\item 
+Bin\+Tree$<$ string $>$ \mbox{\hyperlink{classRiver_a0911a3f3da35ff5738f412e424a8691a}{basin\+\_\+cities}}
+\begin{DoxyCompactList}\small\item\em The structure of the basin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\mbox{\hyperlink{classRiver}{River}} administrates the basin\textquotesingle{}s city structure and the set of all inventories. 
+
+\mbox{\hyperlink{classRiver}{River}} holds the Bin\+Tree structure and all the cities It also handles the input of a new basin structure. 
+
+Definición en la línea 26 del archivo river.\+hh.
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classRiver_a305d3ec8496a5373328045da3b8d8362}\label{classRiver_a305d3ec8496a5373328045da3b8d8362}} 
+\index{River@{River}!River@{River}}
+\index{River@{River}!River@{River}}
+\doxysubsubsection{\texorpdfstring{River()}{River()}}
+{\footnotesize\ttfamily River\+::\+River (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. It sets everything to its initial state. Basin is empty. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+TRUE. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 189 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{190 \{}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a5376d67ed6902e25756c3f19294896f6}\label{classRiver_a5376d67ed6902e25756c3f19294896f6}} 
+\index{River@{River}!````~River@{$\sim$River}}
+\index{````~River@{$\sim$River}!River@{River}}
+\doxysubsubsection{\texorpdfstring{$\sim$River()}{~River()}}
+{\footnotesize\ttfamily River\+::$\sim$\+River (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. It calls the destructor of child elements. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+No memory are wasted. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 194 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{195 \{}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classRiver_a5bb977a6f8a8d3b2b73747da7b134391}\label{classRiver_a5bb977a6f8a8d3b2b73747da7b134391}} 
+\index{River@{River}!city\_add\_product@{city\_add\_product}}
+\index{city\_add\_product@{city\_add\_product}!River@{River}}
+\doxysubsubsection{\texorpdfstring{city\_add\_product()}{city\_add\_product()}}
+{\footnotesize\ttfamily void River\+::city\+\_\+add\+\_\+product (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+id,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pddata,  }\item[{uint32\+\_\+t}]{product\+\_\+id,  }\item[{int}]{in\+\_\+demand,  }\item[{int}]{available }\end{DoxyParamCaption})}
+
+
+
+Add a product to a city given their corresponding IDs. 
+
+\begin{DoxyPrecond}{Precondición}
+The city exists in the basin. The product is valid and did not exist before in its inventory. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The product is added to the inventory.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+id} & The ID (name) of the city. \\
+\hline
+{\em pddata} & The database of all products, in which the \char`\"{}product\+\_\+id\char`\"{} exists. \\
+\hline
+{\em product\+\_\+id} & The ID (tag) of the product. \\
+\hline
+{\em in\+\_\+demand} & The product\textquotesingle{}s demand of the city. \\
+\hline
+{\em available} & The product\textquotesingle{}s availability of the city. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 297 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{298 \{}
+\DoxyCodeLine{299     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_id);}
+\DoxyCodeLine{300     it-\/>second.add\_product\_to\_inventory(product\_id, pddata, in\_demand, available);}
+\DoxyCodeLine{301 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a4b7ed659014e46179cfddd31e284ab84}\label{classRiver_a4b7ed659014e46179cfddd31e284ab84}} 
+\index{River@{River}!city\_clear\_inventory@{city\_clear\_inventory}}
+\index{city\_clear\_inventory@{city\_clear\_inventory}!River@{River}}
+\doxysubsubsection{\texorpdfstring{city\_clear\_inventory()}{city\_clear\_inventory()}}
+{\footnotesize\ttfamily void River\+::city\+\_\+clear\+\_\+inventory (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Clear the inventory of the city. 
+
+\begin{DoxyPrecond}{Precondición}
+The city exists in the basin. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The inventory is cleared.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+id} & The ID (name) of the city. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 316 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{317 \{}
+\DoxyCodeLine{318     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_id);}
+\DoxyCodeLine{319     it-\/>second.clear\_inventory();}
+\DoxyCodeLine{320 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_adb3c9f25261f7a8a3d45d50d80d186a5}\label{classRiver_adb3c9f25261f7a8a3d45d50d80d186a5}} 
+\index{River@{River}!city\_consult\_product@{city\_consult\_product}}
+\index{city\_consult\_product@{city\_consult\_product}!River@{River}}
+\doxysubsubsection{\texorpdfstring{city\_consult\_product()}{city\_consult\_product()}}
+{\footnotesize\ttfamily bool River\+::city\+\_\+consult\+\_\+product (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+id,  }\item[{uint32\+\_\+t}]{product\+\_\+id,  }\item[{int \&}]{in\+\_\+demand,  }\item[{int \&}]{available }\end{DoxyParamCaption}) const}
+
+
+
+Consult the information of a product of a city given their corresponding IDs. 
+
+\begin{DoxyPrecond}{Precondición}
+The city exists in the basin. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Returns FALSE only if the product is not in inventory. Otherwise the data is returned via reference.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+id} & The ID (name) of the city. \\
+\hline
+{\em product\+\_\+id} & The ID (tag) of the product. \\
+\hline
+{\em in\+\_\+demand} & The product\textquotesingle{}s demand of the city, this is the parameter for returning via reference. \\
+\hline
+{\em available} & The product\textquotesingle{}s availability of the city, this is the parameter for returning via reference.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+FALSE if the product is not in inventory. Otherwise TRUE, and the data is returned via the two references. 
+\end{DoxyReturn}
+
+
+Definición en la línea 275 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{276 \{}
+\DoxyCodeLine{277     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_id);}
+\DoxyCodeLine{278     \textcolor{keywordflow}{if} (it-\/>second.exist\_in\_inventory(product\_id)) \{}
+\DoxyCodeLine{279         it-\/>second.consult\_product(product\_id, in\_demand, available);}
+\DoxyCodeLine{280         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{281     \}}
+\DoxyCodeLine{282     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{283 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a3768eb4430e727116a7a045b20849bef}\label{classRiver_a3768eb4430e727116a7a045b20849bef}} 
+\index{River@{River}!city\_delete\_product@{city\_delete\_product}}
+\index{city\_delete\_product@{city\_delete\_product}!River@{River}}
+\doxysubsubsection{\texorpdfstring{city\_delete\_product()}{city\_delete\_product()}}
+{\footnotesize\ttfamily void River\+::city\+\_\+delete\+\_\+product (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+id,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pddata,  }\item[{uint32\+\_\+t}]{product\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Delete one product from the inventory of the city given their corresponding IDs. 
+
+\begin{DoxyPrecond}{Precondición}
+The city exists in the basin and so the product inside it. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The product is deleted from the inventory of the city.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+id} & The ID (name) of the city. \\
+\hline
+{\em pddata} & The database of all products. \\
+\hline
+{\em product\+\_\+id} & The ID (tag) of the product. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 303 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{304 \{}
+\DoxyCodeLine{305     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_id);}
+\DoxyCodeLine{306     it-\/>second.delete\_product(product\_id, pddata);}
+\DoxyCodeLine{307 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a94aaa156469562b25c648f630431d973}\label{classRiver_a94aaa156469562b25c648f630431d973}} 
+\index{River@{River}!city\_exists\_in\_basin@{city\_exists\_in\_basin}}
+\index{city\_exists\_in\_basin@{city\_exists\_in\_basin}!River@{River}}
+\doxysubsubsection{\texorpdfstring{city\_exists\_in\_basin()}{city\_exists\_in\_basin()}}
+{\footnotesize\ttfamily bool River\+::city\+\_\+exists\+\_\+in\+\_\+basin (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+id }\end{DoxyParamCaption}) const}
+
+
+
+Tells if the city exists in the basin. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Returns TRUE only if the city exists in the basin.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+id} & The ID (name) of the city.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+TRUE if the city is in the basin. Otherwise FALSE. 
+\end{DoxyReturn}
+
+
+Definición en la línea 269 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{270 \{}
+\DoxyCodeLine{271     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_id);}
+\DoxyCodeLine{272     \textcolor{keywordflow}{return} it != this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.end();}
+\DoxyCodeLine{273 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a4746bb1922b988d20a1e59012962f764}\label{classRiver_a4746bb1922b988d20a1e59012962f764}} 
+\index{River@{River}!city\_has\_product@{city\_has\_product}}
+\index{city\_has\_product@{city\_has\_product}!River@{River}}
+\doxysubsubsection{\texorpdfstring{city\_has\_product()}{city\_has\_product()}}
+{\footnotesize\ttfamily bool River\+::city\+\_\+has\+\_\+product (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+id,  }\item[{uint32\+\_\+t}]{product }\end{DoxyParamCaption}) const}
+
+
+
+Tells if city has the product. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Returns TRUE only if the product is inside the inventory of the city.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+id} & The ID (name) of the city. \\
+\hline
+{\em product} & The ID (tag) of the product.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+TRUE if the product is inside the inventory of the city. Otherwise FALSE. 
+\end{DoxyReturn}
+
+
+Definición en la línea 285 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{286 \{}
+\DoxyCodeLine{287     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_id);}
+\DoxyCodeLine{288     \textcolor{keywordflow}{return} it-\/>second.exist\_in\_inventory(product);}
+\DoxyCodeLine{289 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_ac3fb12747ce0b6e735989e31e5291903}\label{classRiver_ac3fb12747ce0b6e735989e31e5291903}} 
+\index{River@{River}!city\_information@{city\_information}}
+\index{city\_information@{city\_information}!River@{River}}
+\doxysubsubsection{\texorpdfstring{city\_information()}{city\_information()}}
+{\footnotesize\ttfamily void River\+::city\+\_\+information (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+id,  }\item[{int \&}]{total\+\_\+mass,  }\item[{int \&}]{total\+\_\+volume,  }\item[{bool \&}]{has\+\_\+inventory }\end{DoxyParamCaption}) const}
+
+
+
+Returns the city inventory\textquotesingle{}s basic information\+: total mass, total volume, if has inventory. 
+
+\begin{DoxyPrecond}{Precondición}
+The city exists in the basin. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The three pieces of info are returned via reference.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+id} & The ID (name) of the city. \\
+\hline
+{\em total\+\_\+mass} & The total mass of the inventory of the city, this is the parameter for returning via reference. \\
+\hline
+{\em total\+\_\+volume} & The total volume of the inventory of the city, this is the parameter for returning via reference. \\
+\hline
+{\em has\+\_\+inventory} & Tells if the city has inventory, this is the parameter for returning via reference.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+The data is returned via the last three references. 
+\end{DoxyReturn}
+
+
+Definición en la línea 309 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{310 \{}
+\DoxyCodeLine{311     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_id);}
+\DoxyCodeLine{312     it-\/>second.total\_mass\_and\_volume(total\_mass, total\_volume);}
+\DoxyCodeLine{313     has\_inventory = it-\/>second.has\_inventory();}
+\DoxyCodeLine{314 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a6c49c0dc0a272b93df57ae5dab34d673}\label{classRiver_a6c49c0dc0a272b93df57ae5dab34d673}} 
+\index{River@{River}!city\_modify\_product@{city\_modify\_product}}
+\index{city\_modify\_product@{city\_modify\_product}!River@{River}}
+\doxysubsubsection{\texorpdfstring{city\_modify\_product()}{city\_modify\_product()}}
+{\footnotesize\ttfamily void River\+::city\+\_\+modify\+\_\+product (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+id,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pddata,  }\item[{uint32\+\_\+t}]{product\+\_\+id,  }\item[{int}]{in\+\_\+demand,  }\item[{int}]{available }\end{DoxyParamCaption})}
+
+
+
+Modify the information of a product of a city given their corresponding IDs. 
+
+\begin{DoxyPrecond}{Precondición}
+The city exists in the basin. The product must already exist in city\textquotesingle{}s inventory. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The information will be updated.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+id} & The ID (name) of the city. \\
+\hline
+{\em pddata} & The database of all products, in which the \char`\"{}product\+\_\+id\char`\"{} exists. \\
+\hline
+{\em product\+\_\+id} & The ID (tag) of the product. \\
+\hline
+{\em in\+\_\+demand} & The product\textquotesingle{}s demand of the city. \\
+\hline
+{\em available} & The product\textquotesingle{}s availability of the city. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 291 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{292 \{}
+\DoxyCodeLine{293     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_id);}
+\DoxyCodeLine{294     it-\/>second.set\_product\_in\_inventory(product\_id, pddata, in\_demand, available);}
+\DoxyCodeLine{295 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_abd22d89aedee4dd25f6f54874104e1fe}\label{classRiver_abd22d89aedee4dd25f6f54874104e1fe}} 
+\index{River@{River}!city\_write\_inventory@{city\_write\_inventory}}
+\index{city\_write\_inventory@{city\_write\_inventory}!River@{River}}
+\doxysubsubsection{\texorpdfstring{city\_write\_inventory()}{city\_write\_inventory()}}
+{\footnotesize\ttfamily void River\+::city\+\_\+write\+\_\+inventory (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+id }\end{DoxyParamCaption}) const}
+
+
+
+Write on the output using C++ STL \char`\"{}cout\char`\"{} in the requiered format the whole inventory of the \char`\"{}city\char`\"{} in numerical ascending order of the ID of the product. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The city inventory, if exists and has elements, will be written on the output.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+id} & The ID (name) of the city. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 322 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{323 \{}
+\DoxyCodeLine{324     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_id);}
+\DoxyCodeLine{325     it-\/>second.write\_inventory();}
+\DoxyCodeLine{326 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a3635b005f7fec3cf791f2f18ccfcead0}\label{classRiver_a3635b005f7fec3cf791f2f18ccfcead0}} 
+\index{River@{River}!input\_river\_structure@{input\_river\_structure}}
+\index{input\_river\_structure@{input\_river\_structure}!River@{River}}
+\doxysubsubsection{\texorpdfstring{input\_river\_structure()}{input\_river\_structure()}}
+{\footnotesize\ttfamily void River\+::input\+\_\+river\+\_\+structure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read from input the new structure of the basin. 
+
+\begin{DoxyPrecond}{Precondición}
+There is a valid binary tree description in Pre\+Order on the input. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+\mbox{\hyperlink{classRiver}{River}}\textquotesingle{}s structure is updated according to the input. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 199 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{200 \{}
+\DoxyCodeLine{201     this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.clear();}
+\DoxyCodeLine{202     this-\/>\mbox{\hyperlink{classRiver_a0911a3f3da35ff5738f412e424a8691a}{basin\_cities}} = this-\/>\mbox{\hyperlink{classRiver_a335ffb8cb51fef8b65fb39bbc6e3ca06}{read\_input\_bin\_tree}}();}
+\DoxyCodeLine{203 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a335ffb8cb51fef8b65fb39bbc6e3ca06}\label{classRiver_a335ffb8cb51fef8b65fb39bbc6e3ca06}} 
+\index{River@{River}!read\_input\_bin\_tree@{read\_input\_bin\_tree}}
+\index{read\_input\_bin\_tree@{read\_input\_bin\_tree}!River@{River}}
+\doxysubsubsection{\texorpdfstring{read\_input\_bin\_tree()}{read\_input\_bin\_tree()}}
+{\footnotesize\ttfamily Bin\+Tree$<$ string $>$ River\+::read\+\_\+input\+\_\+bin\+\_\+tree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The function reads a binary tree structure in Pre\+Order format recursively from the input. 
+
+\begin{DoxyPrecond}{Precondición}
+A valid binary tree description is on the input. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The function absorbs the necessary data from the input to generate the Bin\+Tree data. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Devuelve}
+A built Bin\+Tree data. 
+\end{DoxyReturn}
+
+
+Definición en la línea 8 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     \textcolor{keywordtype}{string} input;}
+\DoxyCodeLine{11     cin >> input;}
+\DoxyCodeLine{12     \textcolor{keywordflow}{if} (input == \textcolor{stringliteral}{"{}\#"{}}) \{}
+\DoxyCodeLine{13         \textcolor{keywordflow}{return} BinTree<string>();}
+\DoxyCodeLine{14     \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{comment}{// to make this city exist in inventory}}
+\DoxyCodeLine{17     this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.insert(pair<string, City>(input, \mbox{\hyperlink{classCity}{City}}()));}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{auto} left = \mbox{\hyperlink{classRiver_a335ffb8cb51fef8b65fb39bbc6e3ca06}{read\_input\_bin\_tree}}();}
+\DoxyCodeLine{20     \textcolor{keyword}{auto} right = \mbox{\hyperlink{classRiver_a335ffb8cb51fef8b65fb39bbc6e3ca06}{read\_input\_bin\_tree}}();}
+\DoxyCodeLine{21     \textcolor{keywordflow}{return} BinTree<string>(input, left, right);}
+\DoxyCodeLine{22 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a29484db8b3d3813cdc9a15924c77d9cb}\label{classRiver_a29484db8b3d3813cdc9a15924c77d9cb}} 
+\index{River@{River}!redistribute@{redistribute}}
+\index{redistribute@{redistribute}!River@{River}}
+\doxysubsubsection{\texorpdfstring{redistribute()}{redistribute()}}
+{\footnotesize\ttfamily void River\+::redistribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pddata }\end{DoxyParamCaption})}
+
+
+
+Redistribute according to the requirement 17 of the documentation. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+All inventories of the intervened cities will be modified.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em pddata} & The database for all products. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 264 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{265 \{}
+\DoxyCodeLine{266     this-\/>\mbox{\hyperlink{classRiver_aa8f131467eb30869b86b7d50b58b8ffe}{redistribute\_REC}}(this-\/>\mbox{\hyperlink{classRiver_a0911a3f3da35ff5738f412e424a8691a}{basin\_cities}}, pddata);}
+\DoxyCodeLine{267 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_aa8f131467eb30869b86b7d50b58b8ffe}\label{classRiver_aa8f131467eb30869b86b7d50b58b8ffe}} 
+\index{River@{River}!redistribute\_REC@{redistribute\_REC}}
+\index{redistribute\_REC@{redistribute\_REC}!River@{River}}
+\doxysubsubsection{\texorpdfstring{redistribute\_REC()}{redistribute\_REC()}}
+{\footnotesize\ttfamily void River\+::redistribute\+\_\+\+REC (\begin{DoxyParamCaption}\item[{Bin\+Tree$<$ string $>$}]{this\+\_\+city,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pddata }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Each city interchange products with the one on the left of the river stucture, and then the one on the right. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}this\+\_\+city\char`\"{} is a valid Bin\+Tree node with correct city names (when this\+\_\+city is not empty). \char`\"{}pddata\char`\"{} contains the info of all intervened products. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+All inventories that satisfies with the interchange conditions will be modified.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em this\+\_\+city} & A Bin\+Tree node in which all names are valid. \\
+\hline
+{\em pddata} & The \mbox{\hyperlink{classProductData}{Product\+Data}} that contains the info of all intervened products. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 170 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{171 \{}
+\DoxyCodeLine{172     \textcolor{keywordflow}{if} (this\_city.empty()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     BinTree<string> left = this\_city.left();}
+\DoxyCodeLine{175     BinTree<string> right = this\_city.right();}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \textcolor{keywordflow}{if} (not left.empty()) \{}
+\DoxyCodeLine{178         this-\/>\mbox{\hyperlink{classRiver_a45ffebc0708462e2b557af7d5144f6c1}{trade}}(this\_city.value(), left.value(), pddata);}
+\DoxyCodeLine{179     \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     \textcolor{keywordflow}{if} (not right.empty()) \{}
+\DoxyCodeLine{182         this-\/>\mbox{\hyperlink{classRiver_a45ffebc0708462e2b557af7d5144f6c1}{trade}}(this\_city.value(), right.value(), pddata);}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     \mbox{\hyperlink{classRiver_aa8f131467eb30869b86b7d50b58b8ffe}{redistribute\_REC}}(left, pddata);}
+\DoxyCodeLine{186     \mbox{\hyperlink{classRiver_aa8f131467eb30869b86b7d50b58b8ffe}{redistribute\_REC}}(right, pddata);}
+\DoxyCodeLine{187 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a7ad1f0e889d13d9e40ded70417470da0}\label{classRiver_a7ad1f0e889d13d9e40ded70417470da0}} 
+\index{River@{River}!ship\_find\_optimum\_route@{ship\_find\_optimum\_route}}
+\index{ship\_find\_optimum\_route@{ship\_find\_optimum\_route}!River@{River}}
+\doxysubsubsection{\texorpdfstring{ship\_find\_optimum\_route()}{ship\_find\_optimum\_route()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structRiver_1_1SubrouteInfo}{River\+::\+Subroute\+Info}} River\+::ship\+\_\+find\+\_\+optimum\+\_\+route (\begin{DoxyParamCaption}\item[{list$<$ string $>$ \&}]{route,  }\item[{Bin\+Tree$<$ string $>$}]{city,  }\item[{\mbox{\hyperlink{classShip}{Ship}} const \&}]{ship,  }\item[{\mbox{\hyperlink{structRiver_1_1SubrouteInfo}{Subroute\+Info}}}]{srinfo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Finds recursively the best route. 
+
+\begin{DoxyPrecond}{Precondición}
+~\newline
+ 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em route} & The route to be returned. It has to be initially empty. \\
+\hline
+{\em city} & A valid Bin\+Tree$<$string$>$ node. \\
+\hline
+{\em ship} & The information of the ship. \\
+\hline
+{\em srinfo} & The result after current trade. Initially, it has to be the ship.\+wanted\+\_\+number() and ship.\+for\+\_\+sell\+\_\+number().\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+The \mbox{\hyperlink{structRiver_1_1SubrouteInfo}{Subroute\+Info}} of how is the result of transaction on the optimum route. Through the \char`\"{}route\char`\"{} reference, the optimum route is returned. 
+\end{DoxyReturn}
+
+
+Definición en la línea 24 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     \textcolor{keywordflow}{if} (city.empty()) \{}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} srinfo;}
+\DoxyCodeLine{33     \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{// try to transact}}
+\DoxyCodeLine{36     \textcolor{keywordtype}{bool} transacted = \textcolor{keyword}{false};}
+\DoxyCodeLine{37     \mbox{\hyperlink{classCity}{City}}\& city\_obj = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city.value())-\/>second;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordflow}{if} (city\_obj.\mbox{\hyperlink{classCity_a031054194312c63b554bb6b3739855a1}{exist\_in\_inventory}}(ship.wanted\_product())) \{}
+\DoxyCodeLine{40         \textcolor{keywordtype}{int} in\_demand, available;}
+\DoxyCodeLine{41         city\_obj.\mbox{\hyperlink{classCity_a653d7d5f2afb4e7fee41ed11df9096b8}{consult\_product}}(ship.wanted\_product(), in\_demand, available);}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} (available > in\_demand) \{}
+\DoxyCodeLine{43             srinfo.left\_for\_buy -\/= available -\/ in\_demand;}
+\DoxyCodeLine{44             transacted = \textcolor{keyword}{true};}
+\DoxyCodeLine{45         \}}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47     \textcolor{keywordflow}{if} (city\_obj.\mbox{\hyperlink{classCity_a031054194312c63b554bb6b3739855a1}{exist\_in\_inventory}}(ship.for\_sell\_product())) \{}
+\DoxyCodeLine{48         \textcolor{keywordtype}{int} in\_demand, available;}
+\DoxyCodeLine{49         city\_obj.\mbox{\hyperlink{classCity_a653d7d5f2afb4e7fee41ed11df9096b8}{consult\_product}}(ship.for\_sell\_product(), in\_demand, available);}
+\DoxyCodeLine{50         \textcolor{keywordflow}{if} (in\_demand > available) \{}
+\DoxyCodeLine{51             srinfo.left\_for\_sell -\/= in\_demand -\/ available;}
+\DoxyCodeLine{52             transacted = \textcolor{keyword}{true};}
+\DoxyCodeLine{53         \}}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{comment}{// if transacted too much, reset to zero}}
+\DoxyCodeLine{57     \textcolor{keywordflow}{if} (srinfo.left\_for\_buy < 0) srinfo.left\_for\_buy = 0;}
+\DoxyCodeLine{58     \textcolor{keywordflow}{if} (srinfo.left\_for\_sell < 0) srinfo.left\_for\_sell = 0;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{comment}{// if no further trades are needed}}
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} (srinfo.left\_for\_buy == 0 and srinfo.left\_for\_sell == 0) \{}
+\DoxyCodeLine{62         route.push\_back(city.value());}
+\DoxyCodeLine{63         \textcolor{keywordflow}{return} srinfo;}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     list<string> left\_subroute, right\_subroute;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     SubrouteInfo left\_accumulated = \mbox{\hyperlink{classRiver_a7ad1f0e889d13d9e40ded70417470da0}{ship\_find\_optimum\_route}}(left\_subroute, city.left(), ship, srinfo);}
+\DoxyCodeLine{69     SubrouteInfo right\_accumulated = \mbox{\hyperlink{classRiver_a7ad1f0e889d13d9e40ded70417470da0}{ship\_find\_optimum\_route}}(right\_subroute, city.right(), ship, srinfo);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{int} sum\_srinfo\_this = srinfo.left\_for\_buy + srinfo.left\_for\_sell;}
+\DoxyCodeLine{72     \textcolor{keywordtype}{int} sum\_srinfo\_left = left\_accumulated.left\_for\_buy + left\_accumulated.left\_for\_sell;}
+\DoxyCodeLine{73     \textcolor{keywordtype}{int} sum\_srinfo\_right = right\_accumulated.left\_for\_buy + right\_accumulated.left\_for\_sell;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{comment}{// if no further trades are done}}
+\DoxyCodeLine{76     \textcolor{keywordflow}{if} (sum\_srinfo\_this == sum\_srinfo\_left and sum\_srinfo\_this == sum\_srinfo\_right) \{}
+\DoxyCodeLine{77         \textcolor{keywordflow}{if} (transacted) route.push\_front(city.value());}
+\DoxyCodeLine{78         \textcolor{keywordflow}{return} srinfo;}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80     \textcolor{comment}{// if in both subroutes have done trades}}
+\DoxyCodeLine{81     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sum\_srinfo\_this != sum\_srinfo\_left and sum\_srinfo\_this != sum\_srinfo\_right) \{}
+\DoxyCodeLine{82         \textcolor{comment}{// compare in which route sold more}}
+\DoxyCodeLine{83         \textcolor{keywordflow}{if} (sum\_srinfo\_left < sum\_srinfo\_right) \{}
+\DoxyCodeLine{84             left\_subroute.push\_front(city.value());}
+\DoxyCodeLine{85             route = left\_subroute;}
+\DoxyCodeLine{86             \textcolor{keywordflow}{return} left\_accumulated;}
+\DoxyCodeLine{87         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sum\_srinfo\_right < sum\_srinfo\_left) \{}
+\DoxyCodeLine{88             right\_subroute.push\_front(city.value());}
+\DoxyCodeLine{89             route = right\_subroute;}
+\DoxyCodeLine{90             \textcolor{keywordflow}{return} right\_accumulated;}
+\DoxyCodeLine{91         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{92             \textcolor{comment}{// sold equally, compare which route is shorter}}
+\DoxyCodeLine{93             \textcolor{keywordflow}{if} (left\_subroute.size() < right\_subroute.size()) \{}
+\DoxyCodeLine{94                 left\_subroute.push\_front(city.value());}
+\DoxyCodeLine{95                 route = left\_subroute;}
+\DoxyCodeLine{96                 \textcolor{keywordflow}{return} left\_accumulated;}
+\DoxyCodeLine{97             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (right\_subroute.size() < left\_subroute.size()) \{}
+\DoxyCodeLine{98                 right\_subroute.push\_front(city.value());}
+\DoxyCodeLine{99                 route = right\_subroute;}
+\DoxyCodeLine{100                 \textcolor{keywordflow}{return} right\_accumulated;}
+\DoxyCodeLine{101             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{102                 \textcolor{comment}{// equally short, select the left one}}
+\DoxyCodeLine{103                 left\_subroute.push\_front(city.value());}
+\DoxyCodeLine{104                 route = left\_subroute;}
+\DoxyCodeLine{105                 \textcolor{keywordflow}{return} left\_accumulated;}
+\DoxyCodeLine{106             \}}
+\DoxyCodeLine{107         \}}
+\DoxyCodeLine{108     \}}
+\DoxyCodeLine{109     \textcolor{comment}{// left side no trades, so right side yes trades}}
+\DoxyCodeLine{110     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sum\_srinfo\_this == sum\_srinfo\_left) \{}
+\DoxyCodeLine{111         right\_subroute.push\_front(city.value());}
+\DoxyCodeLine{112         route = right\_subroute;}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} right\_accumulated;}
+\DoxyCodeLine{114     \}}
+\DoxyCodeLine{115     \textcolor{comment}{// now left side yes trades (implying that right side no trades)}}
+\DoxyCodeLine{116     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{117         left\_subroute.push\_front(city.value());}
+\DoxyCodeLine{118         route = left\_subroute;}
+\DoxyCodeLine{119         \textcolor{keywordflow}{return} left\_accumulated;}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a8ebf337f05ae40a51947057194ac52a1}\label{classRiver_a8ebf337f05ae40a51947057194ac52a1}} 
+\index{River@{River}!ship\_transact@{ship\_transact}}
+\index{ship\_transact@{ship\_transact}!River@{River}}
+\doxysubsubsection{\texorpdfstring{ship\_transact()}{ship\_transact()}}
+{\footnotesize\ttfamily void River\+::ship\+\_\+transact (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+name,  }\item[{\mbox{\hyperlink{classShip}{Ship}} \&}]{ship,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pddata }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Given the city\textquotesingle{}s name and the ship, transact between them modifying eachone\textquotesingle{}s inventory. 
+
+\begin{DoxyPrecond}{Precondición}
+The city\+\_\+name is a valid city name. \mbox{\hyperlink{classProductData}{Product\+Data}} contains information of all intervened products. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The inventories are modified.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+name} & The ID (name) of the city. \\
+\hline
+{\em ship} & The \mbox{\hyperlink{classShip}{Ship}} object. The ship\textquotesingle{}s data is modified if any trade is done. \\
+\hline
+{\em pddata} & The products\textquotesingle{} database. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 123 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{124 \{}
+\DoxyCodeLine{125     \textcolor{keyword}{auto} city\_it = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_name);}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     \textcolor{keywordtype}{int} ship\_wanted\_product\_count   = ship.\mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\_number}}();}
+\DoxyCodeLine{128     \textcolor{keywordtype}{int} ship\_for\_sell\_product\_count = ship.\mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\_sell\_number}}();}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{keywordflow}{if} (city\_it-\/>second.exist\_in\_inventory(ship.\mbox{\hyperlink{classShip_a788e0e2b21a00140113b3d3794c631ef}{wanted\_product}}())) \{}
+\DoxyCodeLine{131         \textcolor{keywordtype}{int} ship\_wanted\_in\_demand, ship\_wanted\_available;}
+\DoxyCodeLine{132         city\_it-\/>second.consult\_product(ship.\mbox{\hyperlink{classShip_a788e0e2b21a00140113b3d3794c631ef}{wanted\_product}}(), ship\_wanted\_in\_demand, ship\_wanted\_available);}
+\DoxyCodeLine{133         \textcolor{comment}{// only transact if the city has more than it needs}}
+\DoxyCodeLine{134         \textcolor{keywordflow}{if} (ship\_wanted\_available > ship\_wanted\_in\_demand) \{}
+\DoxyCodeLine{135             \textcolor{keywordtype}{int} available\_for\_purchase = ship\_wanted\_available -\/ ship\_wanted\_in\_demand;}
+\DoxyCodeLine{136             \textcolor{keywordflow}{if} (ship.\mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\_number}}() <= available\_for\_purchase) \{}
+\DoxyCodeLine{137                 city\_it-\/>second.set\_product\_in\_inventory(ship.\mbox{\hyperlink{classShip_a788e0e2b21a00140113b3d3794c631ef}{wanted\_product}}(), pddata, ship\_wanted\_in\_demand, ship\_wanted\_available -\/ ship.\mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\_number}}());}
+\DoxyCodeLine{138                 \textcolor{comment}{// now the ship dows not need this product anymore}}
+\DoxyCodeLine{139                 ship\_wanted\_product\_count = 0;}
+\DoxyCodeLine{140             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{141                 \textcolor{comment}{// now the ship bought some, the inventory of the city reduced to exactly how many it needs}}
+\DoxyCodeLine{142                 ship\_wanted\_product\_count -\/= available\_for\_purchase;}
+\DoxyCodeLine{143                 city\_it-\/>second.set\_product\_in\_inventory(ship.\mbox{\hyperlink{classShip_a788e0e2b21a00140113b3d3794c631ef}{wanted\_product}}(), pddata, ship\_wanted\_in\_demand, ship\_wanted\_in\_demand);}
+\DoxyCodeLine{144             \}}
+\DoxyCodeLine{145         \}}
+\DoxyCodeLine{146     \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{keywordflow}{if} (city\_it-\/>second.exist\_in\_inventory(ship.\mbox{\hyperlink{classShip_a3def8b4896be0b73dfb52cf93bb76b8a}{for\_sell\_product}}())) \{}
+\DoxyCodeLine{149         \textcolor{keywordtype}{int} ship\_for\_sell\_in\_demand, ship\_for\_sell\_available;}
+\DoxyCodeLine{150         city\_it-\/>second.consult\_product(ship.\mbox{\hyperlink{classShip_a3def8b4896be0b73dfb52cf93bb76b8a}{for\_sell\_product}}(), ship\_for\_sell\_in\_demand, ship\_for\_sell\_available);}
+\DoxyCodeLine{151         \textcolor{comment}{// only transact if the city needs more}}
+\DoxyCodeLine{152         \textcolor{keywordflow}{if} (ship\_for\_sell\_in\_demand > ship\_for\_sell\_available) \{}
+\DoxyCodeLine{153             \textcolor{keywordtype}{int} available\_for\_sell = ship\_for\_sell\_in\_demand -\/ ship\_for\_sell\_available;}
+\DoxyCodeLine{154             \textcolor{keywordflow}{if} (ship.\mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\_sell\_number}}() <= available\_for\_sell) \{}
+\DoxyCodeLine{155                 city\_it-\/>second.set\_product\_in\_inventory(ship.\mbox{\hyperlink{classShip_a3def8b4896be0b73dfb52cf93bb76b8a}{for\_sell\_product}}(), pddata, ship\_for\_sell\_in\_demand, ship\_for\_sell\_available + ship.\mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\_sell\_number}}());}
+\DoxyCodeLine{156                 \textcolor{comment}{// now the ship sold all of what it has}}
+\DoxyCodeLine{157                 ship\_for\_sell\_product\_count = 0;}
+\DoxyCodeLine{158             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{159                 \textcolor{comment}{// now the ship sold some, the inventory of the city augmented to exactly how many it needs}}
+\DoxyCodeLine{160                 ship\_for\_sell\_product\_count -\/= available\_for\_sell;}
+\DoxyCodeLine{161                 city\_it-\/>second.set\_product\_in\_inventory(ship.\mbox{\hyperlink{classShip_a3def8b4896be0b73dfb52cf93bb76b8a}{for\_sell\_product}}(), pddata, ship\_for\_sell\_in\_demand, ship\_for\_sell\_in\_demand);}
+\DoxyCodeLine{162             \}}
+\DoxyCodeLine{163         \}}
+\DoxyCodeLine{164     \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \textcolor{comment}{// update the ship's info after crossing with this city}}
+\DoxyCodeLine{167     ship.\mbox{\hyperlink{classShip_a5f22f20a433ee36ef62b2edf62e4a5b5}{set\_all}}(ship.\mbox{\hyperlink{classShip_a788e0e2b21a00140113b3d3794c631ef}{wanted\_product}}(), ship\_wanted\_product\_count, ship.\mbox{\hyperlink{classShip_a3def8b4896be0b73dfb52cf93bb76b8a}{for\_sell\_product}}(), ship\_for\_sell\_product\_count);}
+\DoxyCodeLine{168 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a42389dcdd2058c38e7189c5420ef36f8}\label{classRiver_a42389dcdd2058c38e7189c5420ef36f8}} 
+\index{River@{River}!ship\_travelling@{ship\_travelling}}
+\index{ship\_travelling@{ship\_travelling}!River@{River}}
+\doxysubsubsection{\texorpdfstring{ship\_travelling()}{ship\_travelling()}}
+{\footnotesize\ttfamily void River\+::ship\+\_\+travelling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classShip}{Ship}} \&}]{ship,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pddata,  }\item[{int \&}]{bought\+\_\+units,  }\item[{int \&}]{sold\+\_\+units }\end{DoxyParamCaption})}
+
+
+
+Let the ship select route and trade. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The ship\textquotesingle{}s data will be modified. The number of bought and sold units are returned via references.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em ship} & The ship, if traded something, will register the name of the last visited city. \\
+\hline
+{\em pddata} & The database for all products. \\
+\hline
+{\em bought\+\_\+units} & The bought units during the trip, which is returned via the reference. \\
+\hline
+{\em sold\+\_\+units} & The sold units during the trip, which is returned via the reference.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+The ship is modified if any trades are done. In bought\+\_\+units and sold\+\_\+units there are the info of the trip. 
+\end{DoxyReturn}
+
+
+Definición en la línea 205 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{206 \{}
+\DoxyCodeLine{207     \textcolor{comment}{// 0. Ensure that there are nodes in River}}
+\DoxyCodeLine{208     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classRiver_a0911a3f3da35ff5738f412e424a8691a}{basin\_cities}}.empty())}
+\DoxyCodeLine{209         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211     \textcolor{comment}{// 1. Look for the optimum destination}}
+\DoxyCodeLine{212     list<string> optimum\_route;}
+\DoxyCodeLine{213     SubrouteInfo srinfo = \{}
+\DoxyCodeLine{214         .left\_for\_sell = ship.\mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\_sell\_number}}(),}
+\DoxyCodeLine{215         .left\_for\_buy = ship.\mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\_number}}()}
+\DoxyCodeLine{216     \};}
+\DoxyCodeLine{217     SubrouteInfo results = this-\/>\mbox{\hyperlink{classRiver_a7ad1f0e889d13d9e40ded70417470da0}{ship\_find\_optimum\_route}}(optimum\_route, this-\/>\mbox{\hyperlink{classRiver_a0911a3f3da35ff5738f412e424a8691a}{basin\_cities}}, ship, srinfo);}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219     \textcolor{comment}{// Now the optimum route is stored in the "{}optimum\_route"{}.}}
+\DoxyCodeLine{220     \textcolor{comment}{// 2. Transact}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222     \textcolor{comment}{// If in this route there will be no transactions,}}
+\DoxyCodeLine{223     \textcolor{comment}{// then nothing is to be done, obviously.}}
+\DoxyCodeLine{224     \textcolor{keywordflow}{if} (results.left\_for\_sell + results.left\_for\_buy < ship.\mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\_sell\_number}}() + ship.\mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\_number}}()) \{}
+\DoxyCodeLine{225         \textcolor{comment}{// Before applying the transactions, store the original values for the step (4).}}
+\DoxyCodeLine{226         \textcolor{keywordtype}{int} ship\_initial\_wanted\_count   = ship.\mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\_number}}();}
+\DoxyCodeLine{227         \textcolor{keywordtype}{int} ship\_initial\_for\_sell\_count = ship.\mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\_sell\_number}}();}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229         \textcolor{keyword}{auto} optimum\_route\_it   = optimum\_route.begin();}
+\DoxyCodeLine{230         \textcolor{keyword}{auto} optimum\_route\_end  = optimum\_route.end();}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232         \mbox{\hyperlink{classShip}{Ship}} aux\_ship;}
+\DoxyCodeLine{233         aux\_ship.\mbox{\hyperlink{classShip_a5f22f20a433ee36ef62b2edf62e4a5b5}{set\_all}}(}
+\DoxyCodeLine{234             ship.\mbox{\hyperlink{classShip_a788e0e2b21a00140113b3d3794c631ef}{wanted\_product}}(),      ship.\mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\_number}}(),}
+\DoxyCodeLine{235             ship.\mbox{\hyperlink{classShip_a3def8b4896be0b73dfb52cf93bb76b8a}{for\_sell\_product}}(),    ship.\mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\_sell\_number}}()}
+\DoxyCodeLine{236         );}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238         \textcolor{comment}{// for every city}}
+\DoxyCodeLine{239         \textcolor{keywordflow}{while} (optimum\_route\_it != optimum\_route\_end) \{}
+\DoxyCodeLine{240             this-\/>\mbox{\hyperlink{classRiver_a8ebf337f05ae40a51947057194ac52a1}{ship\_transact}}(*optimum\_route\_it, aux\_ship, pddata);}
+\DoxyCodeLine{241             ++optimum\_route\_it;}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244         \textcolor{comment}{// 3. Calculate the values for return}}
+\DoxyCodeLine{245         bought\_units    = ship\_initial\_wanted\_count -\/ aux\_ship.\mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\_number}}();}
+\DoxyCodeLine{246         sold\_units      = ship\_initial\_for\_sell\_count -\/ aux\_ship.\mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\_sell\_number}}();}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248         \textcolor{comment}{// 4. Register the last visited city only if ship made trades}}
+\DoxyCodeLine{249         ship.\mbox{\hyperlink{classShip_a3dda2130236260de9e5145925c09a0c1}{add\_destination}}(optimum\_route.back());}
+\DoxyCodeLine{250     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{251         \textcolor{comment}{// 2. Return zero directly.}}
+\DoxyCodeLine{252         bought\_units = sold\_units = 0;}
+\DoxyCodeLine{253     \}}
+\DoxyCodeLine{254 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRiver_a45ffebc0708462e2b557af7d5144f6c1}\label{classRiver_a45ffebc0708462e2b557af7d5144f6c1}} 
+\index{River@{River}!trade@{trade}}
+\index{trade@{trade}!River@{River}}
+\doxysubsubsection{\texorpdfstring{trade()}{trade()}}
+{\footnotesize\ttfamily void River\+::trade (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+1,  }\item[{string const \&}]{city\+\_\+2,  }\item[{\mbox{\hyperlink{classProductData}{Product\+Data}} const \&}]{pddata }\end{DoxyParamCaption})}
+
+
+
+Trade between 2 cities. 
+
+\begin{DoxyPrecond}{Precondición}
+Both cities exist. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Two cities will trade between them, modifying their inventory.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parámetros}
+{\em city\+\_\+1} & The first trading city. \\
+\hline
+{\em city\+\_\+2} & The second trading city. \\
+\hline
+{\em pddata} & The database for all products. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 256 del archivo river.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{257 \{}
+\DoxyCodeLine{258     \textcolor{keyword}{auto} it\_city\_1 = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_1);}
+\DoxyCodeLine{259     \textcolor{keyword}{auto} it\_city\_2 = this-\/>\mbox{\hyperlink{classRiver_af012d07f93a909857220feac5cf62d62}{inventory\_database}}.find(city\_2);}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261     it\_city\_1-\/>second.trade\_with(it\_city\_2-\/>second, pddata);}
+\DoxyCodeLine{262 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classRiver_a0911a3f3da35ff5738f412e424a8691a}\label{classRiver_a0911a3f3da35ff5738f412e424a8691a}} 
+\index{River@{River}!basin\_cities@{basin\_cities}}
+\index{basin\_cities@{basin\_cities}!River@{River}}
+\doxysubsubsection{\texorpdfstring{basin\_cities}{basin\_cities}}
+{\footnotesize\ttfamily Bin\+Tree$<$string$>$ River\+::basin\+\_\+cities\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The structure of the basin. 
+
+
+
+Definición en la línea 34 del archivo river.\+hh.
+
+\mbox{\Hypertarget{classRiver_af012d07f93a909857220feac5cf62d62}\label{classRiver_af012d07f93a909857220feac5cf62d62}} 
+\index{River@{River}!inventory\_database@{inventory\_database}}
+\index{inventory\_database@{inventory\_database}!River@{River}}
+\doxysubsubsection{\texorpdfstring{inventory\_database}{inventory\_database}}
+{\footnotesize\ttfamily map$<$string, \mbox{\hyperlink{classCity}{City}}$>$ River\+::inventory\+\_\+database\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The satabase store inventories identified with string names. 
+
+
+
+Definición en la línea 30 del archivo river.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{river_8hh}{river.\+hh}}\item 
+\mbox{\hyperlink{river_8cc}{river.\+cc}}\end{DoxyCompactItemize}

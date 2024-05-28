@@ -9,3 +9,8 @@ DOXYGEN
 
 DEMOSTRACIÓN
 - Cómo 
+
+COMERCIAR
+	When the loop ends, it means that all products whose ID is inferior to and equals to what the two iterators previously pointed, have already been processed making a valid interchange between them. Even if one of the iterators hasn't reached the .end() of its container, it already means that all products after it have greater ID than all of the products of the other container, so it is impossible that they dispose of the same products further on.
+
+RECORDAR DE USAR EL 

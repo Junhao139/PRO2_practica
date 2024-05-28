@@ -1,0 +1,407 @@
+\hypertarget{classShip}{}\doxysection{Referencia de la Clase Ship}
+\label{classShip}\index{Ship@{Ship}}
+
+
+\mbox{\hyperlink{classShip}{Ship}} stores what it wants and what it is selling, as well as all destinations that it has been.  
+
+
+
+
+{\ttfamily \#include $<$ship.\+hh$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classShip_ab7608fcfc4d27c678aacaf9bfd68a462}{Ship}} ()
+\begin{DoxyCompactList}\small\item\em The constructor doesn\textquotesingle{}t do anything. However, the ship need to be set\+\_\+all in order to be used. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classShip_a43cd6eeaffc11b49239b091621963a65}{$\sim$\+Ship}} ()
+\begin{DoxyCompactList}\small\item\em The destructor doesn\textquotesingle{}t do anything. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classShip_a788e0e2b21a00140113b3d3794c631ef}{wanted\+\_\+product}} () const
+\begin{DoxyCompactList}\small\item\em Returns the wanted product\textquotesingle{}s ID through referenced variables. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\+\_\+number}} () const
+\begin{DoxyCompactList}\small\item\em Returns the wanted product\textquotesingle{}s quantity through referenced variables. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classShip_a3def8b4896be0b73dfb52cf93bb76b8a}{for\+\_\+sell\+\_\+product}} () const
+\begin{DoxyCompactList}\small\item\em Returns the ID of the product for sell through referenced variables. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\+\_\+sell\+\_\+number}} () const
+\begin{DoxyCompactList}\small\item\em Returns the quantity of the product for sell and its value through referenced variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classShip_a5f22f20a433ee36ef62b2edf62e4a5b5}{set\+\_\+all}} (int32\+\_\+t \mbox{\hyperlink{classShip_a7a923ab5c8fb75b6b1ce70dabbe1eae3}{wanted}}, int \mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\+\_\+number}}, int32\+\_\+t \mbox{\hyperlink{classShip_adbc858e4bae20ae6959d8c98311e72c7}{for\+\_\+sell}}, int \mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\+\_\+sell\+\_\+number}})
+\begin{DoxyCompactList}\small\item\em Sets the wanted product and how many of it, and seemingly for the ones for\+\_\+sell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classShip_a3dda2130236260de9e5145925c09a0c1}{add\+\_\+destination}} (string const \&city\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Register a destination. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classShip_a078f8e3b612543c8d46f7c70acb84ea6}{write\+\_\+all\+\_\+destinations}} () const
+\begin{DoxyCompactList}\small\item\em Output using STL \char`\"{}cout\char`\"{} and in specific format as what is indicated in the Sample all the previous destinations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classShip_a40a09faf1ca039ce2dc362df9962af3d}{clear\+\_\+all\+\_\+destinations}} ()
+\begin{DoxyCompactList}\small\item\em Clears all registered destinations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{classShip_a7a923ab5c8fb75b6b1ce70dabbe1eae3}{wanted}}
+\begin{DoxyCompactList}\small\item\em The ID (tag) of the product that the ship wants to buy. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classShip_adbc858e4bae20ae6959d8c98311e72c7}{for\+\_\+sell}}
+\begin{DoxyCompactList}\small\item\em The ID (tag) of the product that the ship wants to sell. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classShip_a6b1cecc9638d126f82ff2878969dca50}{wanted\+\_\+quantity}}
+\begin{DoxyCompactList}\small\item\em The quantity of the product that the ship wants to buy. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classShip_adb4b7ed6a34da2ae25770f60be1435d1}{for\+\_\+sell\+\_\+quantity}}
+\begin{DoxyCompactList}\small\item\em The quantity of the product that the ship wants to sell. \end{DoxyCompactList}\item 
+list$<$ string $>$ \mbox{\hyperlink{classShip_a009b826d016e49da53d79a51d690c736}{visited\+\_\+cities}}
+\begin{DoxyCompactList}\small\item\em The container of all visited cities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\mbox{\hyperlink{classShip}{Ship}} stores what it wants and what it is selling, as well as all destinations that it has been. 
+
+The \mbox{\hyperlink{classShip}{Ship}} class will hold the information for the \mbox{\hyperlink{classRiver}{River}} class to find the optimum route for transactions. 
+
+Definición en la línea 25 del archivo ship.\+hh.
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classShip_ab7608fcfc4d27c678aacaf9bfd68a462}\label{classShip_ab7608fcfc4d27c678aacaf9bfd68a462}} 
+\index{Ship@{Ship}!Ship@{Ship}}
+\index{Ship@{Ship}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{Ship()}{Ship()}}
+{\footnotesize\ttfamily Ship\+::\+Ship (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The constructor doesn\textquotesingle{}t do anything. However, the ship need to be set\+\_\+all in order to be used. 
+
+
+
+Definición en la línea 8 del archivo ship.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     }
+\DoxyCodeLine{11 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classShip_a43cd6eeaffc11b49239b091621963a65}\label{classShip_a43cd6eeaffc11b49239b091621963a65}} 
+\index{Ship@{Ship}!````~Ship@{$\sim$Ship}}
+\index{````~Ship@{$\sim$Ship}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{$\sim$Ship()}{~Ship()}}
+{\footnotesize\ttfamily Ship\+::$\sim$\+Ship (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The destructor doesn\textquotesingle{}t do anything. 
+
+
+
+Definición en la línea 13 del archivo ship.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classShip_a3dda2130236260de9e5145925c09a0c1}\label{classShip_a3dda2130236260de9e5145925c09a0c1}} 
+\index{Ship@{Ship}!add\_destination@{add\_destination}}
+\index{add\_destination@{add\_destination}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{add\_destination()}{add\_destination()}}
+{\footnotesize\ttfamily void Ship\+::add\+\_\+destination (\begin{DoxyParamCaption}\item[{string const \&}]{city\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Register a destination. 
+
+\begin{DoxyPrecond}{Precondición}
+The city ID is a valid one. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The destination is registered. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 46 del archivo ship.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48     \mbox{\hyperlink{classShip_a009b826d016e49da53d79a51d690c736}{visited\_cities}}.push\_back(city\_id);}
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classShip_a40a09faf1ca039ce2dc362df9962af3d}\label{classShip_a40a09faf1ca039ce2dc362df9962af3d}} 
+\index{Ship@{Ship}!clear\_all\_destinations@{clear\_all\_destinations}}
+\index{clear\_all\_destinations@{clear\_all\_destinations}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{clear\_all\_destinations()}{clear\_all\_destinations()}}
+{\footnotesize\ttfamily void Ship\+::clear\+\_\+all\+\_\+destinations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears all registered destinations. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+No destinations are registered in ship. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 61 del archivo ship.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \{}
+\DoxyCodeLine{63     this-\/>\mbox{\hyperlink{classShip_a009b826d016e49da53d79a51d690c736}{visited\_cities}}.clear();}
+\DoxyCodeLine{64 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classShip_a9d16011762d930b089747803f0156db5}\label{classShip_a9d16011762d930b089747803f0156db5}} 
+\index{Ship@{Ship}!for\_sell\_number@{for\_sell\_number}}
+\index{for\_sell\_number@{for\_sell\_number}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{for\_sell\_number()}{for\_sell\_number()}}
+{\footnotesize\ttfamily int Ship\+::for\+\_\+sell\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the quantity of the product for sell and its value through referenced variables. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Necessary information are returned. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 33 del archivo ship.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classShip_adb4b7ed6a34da2ae25770f60be1435d1}{for\_sell\_quantity}};}
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classShip_a3def8b4896be0b73dfb52cf93bb76b8a}\label{classShip_a3def8b4896be0b73dfb52cf93bb76b8a}} 
+\index{Ship@{Ship}!for\_sell\_product@{for\_sell\_product}}
+\index{for\_sell\_product@{for\_sell\_product}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{for\_sell\_product()}{for\_sell\_product()}}
+{\footnotesize\ttfamily uint32\+\_\+t Ship\+::for\+\_\+sell\+\_\+product (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the ID of the product for sell through referenced variables. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Necessary information are returned. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 28 del archivo ship.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classShip_adbc858e4bae20ae6959d8c98311e72c7}{for\_sell}};}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classShip_a5f22f20a433ee36ef62b2edf62e4a5b5}\label{classShip_a5f22f20a433ee36ef62b2edf62e4a5b5}} 
+\index{Ship@{Ship}!set\_all@{set\_all}}
+\index{set\_all@{set\_all}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{set\_all()}{set\_all()}}
+{\footnotesize\ttfamily void Ship\+::set\+\_\+all (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{wanted,  }\item[{int}]{wanted\+\_\+number,  }\item[{int32\+\_\+t}]{for\+\_\+sell,  }\item[{int}]{for\+\_\+sell\+\_\+number }\end{DoxyParamCaption})}
+
+
+
+Sets the wanted product and how many of it, and seemingly for the ones for\+\_\+sell. 
+
+\begin{DoxyPrecond}{Precondición}
+Both products exist, the numbers are non-\/negative and one of them is strictly positive. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+The information is updated to the class. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 38 del archivo ship.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     this-\/>\mbox{\hyperlink{classShip_a7a923ab5c8fb75b6b1ce70dabbe1eae3}{wanted}}            = \mbox{\hyperlink{classShip_a7a923ab5c8fb75b6b1ce70dabbe1eae3}{wanted}};}
+\DoxyCodeLine{41     this-\/>\mbox{\hyperlink{classShip_a6b1cecc9638d126f82ff2878969dca50}{wanted\_quantity}}   = \mbox{\hyperlink{classShip_abb5e67532774c824ed775794c3161f0d}{wanted\_number}};}
+\DoxyCodeLine{42     this-\/>\mbox{\hyperlink{classShip_adbc858e4bae20ae6959d8c98311e72c7}{for\_sell}}          = \mbox{\hyperlink{classShip_adbc858e4bae20ae6959d8c98311e72c7}{for\_sell}};}
+\DoxyCodeLine{43     this-\/>\mbox{\hyperlink{classShip_adb4b7ed6a34da2ae25770f60be1435d1}{for\_sell\_quantity}} = \mbox{\hyperlink{classShip_a9d16011762d930b089747803f0156db5}{for\_sell\_number}};}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classShip_abb5e67532774c824ed775794c3161f0d}\label{classShip_abb5e67532774c824ed775794c3161f0d}} 
+\index{Ship@{Ship}!wanted\_number@{wanted\_number}}
+\index{wanted\_number@{wanted\_number}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{wanted\_number()}{wanted\_number()}}
+{\footnotesize\ttfamily int Ship\+::wanted\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the wanted product\textquotesingle{}s quantity through referenced variables. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Necessary information are returned. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 23 del archivo ship.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classShip_a6b1cecc9638d126f82ff2878969dca50}{wanted\_quantity}};}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classShip_a788e0e2b21a00140113b3d3794c631ef}\label{classShip_a788e0e2b21a00140113b3d3794c631ef}} 
+\index{Ship@{Ship}!wanted\_product@{wanted\_product}}
+\index{wanted\_product@{wanted\_product}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{wanted\_product()}{wanted\_product()}}
+{\footnotesize\ttfamily uint32\+\_\+t Ship\+::wanted\+\_\+product (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the wanted product\textquotesingle{}s ID through referenced variables. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Necessary information are returned. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 18 del archivo ship.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classShip_a7a923ab5c8fb75b6b1ce70dabbe1eae3}{wanted}};}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classShip_a078f8e3b612543c8d46f7c70acb84ea6}\label{classShip_a078f8e3b612543c8d46f7c70acb84ea6}} 
+\index{Ship@{Ship}!write\_all\_destinations@{write\_all\_destinations}}
+\index{write\_all\_destinations@{write\_all\_destinations}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{write\_all\_destinations()}{write\_all\_destinations()}}
+{\footnotesize\ttfamily void Ship\+::write\+\_\+all\+\_\+destinations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Output using STL \char`\"{}cout\char`\"{} and in specific format as what is indicated in the Sample all the previous destinations. 
+
+\begin{DoxyPrecond}{Precondición}
+TRUE. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+In console there will be a few lines of the \mbox{\hyperlink{classCity}{City}} names. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 51 del archivo ship.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53     \textcolor{keyword}{auto} it = this-\/>\mbox{\hyperlink{classShip_a009b826d016e49da53d79a51d690c736}{visited\_cities}}.begin();}
+\DoxyCodeLine{54     \textcolor{keyword}{auto} end = this-\/>\mbox{\hyperlink{classShip_a009b826d016e49da53d79a51d690c736}{visited\_cities}}.end();}
+\DoxyCodeLine{55     \textcolor{keywordflow}{while} (it != end) \{}
+\DoxyCodeLine{56         cout << *it << endl;}
+\DoxyCodeLine{57         ++it;}
+\DoxyCodeLine{58     \}}
+\DoxyCodeLine{59 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classShip_adbc858e4bae20ae6959d8c98311e72c7}\label{classShip_adbc858e4bae20ae6959d8c98311e72c7}} 
+\index{Ship@{Ship}!for\_sell@{for\_sell}}
+\index{for\_sell@{for\_sell}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{for\_sell}{for\_sell}}
+{\footnotesize\ttfamily int32\+\_\+t Ship\+::for\+\_\+sell\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The ID (tag) of the product that the ship wants to sell. 
+
+
+
+Definición en la línea 33 del archivo ship.\+hh.
+
+\mbox{\Hypertarget{classShip_adb4b7ed6a34da2ae25770f60be1435d1}\label{classShip_adb4b7ed6a34da2ae25770f60be1435d1}} 
+\index{Ship@{Ship}!for\_sell\_quantity@{for\_sell\_quantity}}
+\index{for\_sell\_quantity@{for\_sell\_quantity}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{for\_sell\_quantity}{for\_sell\_quantity}}
+{\footnotesize\ttfamily int Ship\+::for\+\_\+sell\+\_\+quantity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The quantity of the product that the ship wants to sell. 
+
+
+
+Definición en la línea 41 del archivo ship.\+hh.
+
+\mbox{\Hypertarget{classShip_a009b826d016e49da53d79a51d690c736}\label{classShip_a009b826d016e49da53d79a51d690c736}} 
+\index{Ship@{Ship}!visited\_cities@{visited\_cities}}
+\index{visited\_cities@{visited\_cities}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{visited\_cities}{visited\_cities}}
+{\footnotesize\ttfamily list$<$string$>$ Ship\+::visited\+\_\+cities\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The container of all visited cities. 
+
+
+
+Definición en la línea 45 del archivo ship.\+hh.
+
+\mbox{\Hypertarget{classShip_a7a923ab5c8fb75b6b1ce70dabbe1eae3}\label{classShip_a7a923ab5c8fb75b6b1ce70dabbe1eae3}} 
+\index{Ship@{Ship}!wanted@{wanted}}
+\index{wanted@{wanted}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{wanted}{wanted}}
+{\footnotesize\ttfamily int32\+\_\+t Ship\+::wanted\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The ID (tag) of the product that the ship wants to buy. 
+
+
+
+Definición en la línea 29 del archivo ship.\+hh.
+
+\mbox{\Hypertarget{classShip_a6b1cecc9638d126f82ff2878969dca50}\label{classShip_a6b1cecc9638d126f82ff2878969dca50}} 
+\index{Ship@{Ship}!wanted\_quantity@{wanted\_quantity}}
+\index{wanted\_quantity@{wanted\_quantity}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{wanted\_quantity}{wanted\_quantity}}
+{\footnotesize\ttfamily int Ship\+::wanted\+\_\+quantity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The quantity of the product that the ship wants to buy. 
+
+
+
+Definición en la línea 37 del archivo ship.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ship_8hh}{ship.\+hh}}\item 
+\mbox{\hyperlink{ship_8cc}{ship.\+cc}}\end{DoxyCompactItemize}

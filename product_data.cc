@@ -1,3 +1,8 @@
+/**
+ * @file product_data.cc
+ * @brief Implementation for ProductData class in product_data.hh.
+ */
+
 #include "product_data.hh"
 
 ProductData::ProductData()
