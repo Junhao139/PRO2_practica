@@ -39,68 +39,6 @@ private:
     */
     BinTree<string> read_input_bin_tree();
 
-    /** @brief  The struct that stores the data of one destination.
-    */
-    struct DestinationData {
-        int depth;
-        string identifier;
-        int sold_units;
-        int bought_units;
-    };
-
-    /** @brief  The 
-     *  \pre    
-     *  \post
-     * 
-     *  @param  all_destinations    The list of all possible destinations of a ship's route.
-     *  @param  ship                The ship's data.
-     *  @param  steps               Recursion parameter (Init=0). To tell the depth of the recursion.
-     *  @param  last_transact_steps Data keeper (Init=0). To tell the depth of the last recursion in which a transaction occured.
-     *  @param  sold_untis          Data keeper (Init=0). To register the accumulated sold units until a specific moment.
-     *  @param  bought_units        Data keeper (Init=0). To register the accumulated bought units until a specific moment.
-     *  @param  this_city           The node of the BinTree from which to start.
-     *  @param  last_transact_city  Data keeper (Init=""). To register the name (identifier) of the city with who transacted.
-     * 
-     *  @return Via reference, in "all_destinations" there will be all possible destinations of a route.
-    */
-    void ship_seek_all_routes_until_last_transact(
-        list<DestinationData>& all_destinations,
-                   Ship const& ship,
-                           int steps,
-                           int last_transact_steps,
-                           int sold_units,
-                           int bought_units,
-               BinTree<string> this_city,
-                        string last_transact_city
-    );
-
-    /**
-     * @brief 
-     * \pre
-     * \post
-     * 
-     * @param all_destinations 
-     */
-    void ship_select_best_destination(Ship const& ship, list<DestinationData>& all_destinations, list<DestinationData>::iterator& best) const;
-
-    /** @brief  Given a node's info ("verifier"), find the route from the root to that specific node.
-     *  \pre    This_city is a valid node of the BinTree.
-     *  \post   The route, if found, is returned via reference through "route".
-     * 
-     *  @param  route       The returned value. It has to be empty when it's passed.
-     *  @param  verifier    The information of the node with which the route should end.
-     *  @param  steps       Recursion parameter (Init=0). To register the depth to the root of a specific moment.
-     *  @param  this_city   The root node from which the route start.
-     * 
-     *  @return TRUE if the destination node is found. FALSE otherwise.
-    */
-    bool ship_get_route(
-        list<string>&       route,
-        pair<int, string> const&  verifier,
-        int                 steps,
-        BinTree<string>     this_city
-    ) const;
-
     /**
      * @brief 
      * 
@@ -109,9 +47,16 @@ private:
         int left_for_sell, left_for_buy;
     };
 
-    /**
-     *  @brief  
+    /** @brief  
+     *  \pre
+     *  \post
      * 
+     *  @param  route
+     *  @param  city
+     *  @param  ship
+     *  @param  srinfo
+     * 
+     *  @return 
      */
     SubrouteInfo ship_find_optimum_route(
         list<string>& route,
@@ -131,18 +76,6 @@ private:
      *  @return Nothing.
     */
     void ship_transact(string const& city_name, Ship& ship, ProductData const& pddata);
-
-    /** @brief  Returns the sum the "wanted" and "for_sell" values according to the ship's capabilities.
-     *  \pre    TRUE.
-     *  \post   A sum is returned.
-     * 
-     *  @param  ship        The Ship object.
-     *  @param  wanted      The quantity of the product that ship could buy.
-     *  @param  for_sell    The quantity of the product that ship could sell.
-     * 
-     *  @return The sum of the "wanted" and "for_sell" according to the capabilities of the ship.
-    */
-    int ship_for_sell_wanted_sum(Ship const& ship, int wanted, int for_sell) const;
 
     /** @brief  Each city interchange products with the one on the left of the river stucture, and then the one on the right.
      *  \pre    "this_city" is a valid BinTree node with correct city names. "pddata" contains the info of all intervened products.
@@ -170,7 +103,7 @@ public:
     /** @brief  Read from input the new structure of the basin.
      *  \pre    There is a valid binary tree description in PreOrder on the input.
      *  \post   River's structure is updated according to the input.
-     * 
+     *  
      *  @return Nothing.
     */
     void input_river_structure();

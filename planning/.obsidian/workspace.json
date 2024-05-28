@@ -26,9 +26,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "21e86aea25d9c02c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Operaciones.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -155,9 +167,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "96346586e49d9aab",
+  "active": "21e86aea25d9c02c",
   "lastOpenFiles": [
-    "Untitled.md",
+    "preguntas profe.md",
     "Operaciones.md",
     "Mensajes de error.md"
   ]
